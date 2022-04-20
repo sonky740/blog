@@ -1,0 +1,14 @@
+{
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
+  "extends": ["react-app"],
+  "overrides": [
+    {
+      "files": ["src/@types/graphqlTypes.d.ts"]
+    //   "rules": {
+    //     "@typescript-eslint/no-unused-vars": "off"
+    //   }
+    }
+  ]
+}
