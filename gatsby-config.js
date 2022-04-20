@@ -46,6 +46,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     // {
@@ -70,7 +71,7 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-typescript',
+      resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true,
         jsxPragma: 'jsx',

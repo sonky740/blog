@@ -53,11 +53,11 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
 
           return (
             <li key={post.fields.slug}>
-              <Link to={post.fields.slug} itemProp="url">
+              <Link to={post.fields.slug}>
                 <Article>
                   <header>
                     <h2>
-                      <span itemProp="headline">{title}</span>
+                      <span>{title}</span>
                     </h2>
                     <small>{post.frontmatter.date}</small>
                   </header>
@@ -66,7 +66,6 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
                       dangerouslySetInnerHTML={{
                         __html: post.frontmatter.description || post.excerpt,
                       }}
-                      itemProp="description"
                     />
                   </section>
                 </Article>
