@@ -9,6 +9,7 @@ const Article = styled.article`
     margin-bottom: 0;
   }
 
+  h1,
   h2 {
     font-size: 2.4rem;
     color: #222;
