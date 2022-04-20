@@ -11,7 +11,7 @@ const AboutIndex = ({ data, location }: IndexTypes) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <Seo title="About" />
       <About></About>
     </Layout>
   );

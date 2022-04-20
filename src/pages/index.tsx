@@ -56,9 +56,7 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
               <Link to={post.fields.slug}>
                 <Article>
                   <header>
-                    <h2>
-                      <span>{title}</span>
-                    </h2>
+                    <h2>{title}</h2>
                     <small>{post.frontmatter.date}</small>
                   </header>
                   <section>
@@ -95,7 +93,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YYYY년 MM월 DD일")
           title
           description
         }

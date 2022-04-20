@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+deckDeckGoHighlightElement();
 
 const Post = styled.article`
   header {
@@ -90,7 +92,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY년 MM월 DD일")
         description
       }
     }
