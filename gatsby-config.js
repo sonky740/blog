@@ -6,7 +6,7 @@ module.exports = {
       summary: `손기연의 블로그`,
     },
     description: `손기연의 블로그`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`
+    siteUrl: `https://sonkyblogs.gatsbyjs.io`
   },
   plugins: [
     `gatsby-plugin-image`,
