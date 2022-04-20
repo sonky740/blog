@@ -1,8 +1,27 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
-
+import styled from "styled-components";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
+
+const Post = styled.article`
+  header {
+    h1 {
+      margin: 0 0 1.6rem 0;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #aaa;
+    }
+  }
+`;
+
+const PostNav = styled.nav`
+  ul {
+    margin: 0;
+  }
+`;
 
 const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -15,7 +34,7 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
         title={post?.frontmatter.title}
         description={post?.frontmatter.description || post?.excerpt}
       />
-      <article className="blog-post">
+      <Post>
         <header>
           <h1 itemProp="headline">{post?.frontmatter.title}</h1>
           <p>{post?.frontmatter.date}</p>
@@ -24,8 +43,8 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
           dangerouslySetInnerHTML={{ __html: post?.html! }}
           itemProp="articleBody"
         />
-      </article>
-      <nav className="blog-post-nav">
+      </Post>
+      <PostNav>
         <ul
           style={{
             display: `flex`,
@@ -50,7 +69,7 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
             )}
           </li>
         </ul>
-      </nav>
+      </PostNav>
     </Layout>
   );
 };

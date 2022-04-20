@@ -12,14 +12,15 @@ const Article = styled.article`
   h2 {
     font-size: 2.4rem;
     color: #222;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.6rem;
     margin-top: 0;
   }
 
   header {
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
 
     small {
+      font-size: 1.4rem;
       color: #aaa;
     }
   }
