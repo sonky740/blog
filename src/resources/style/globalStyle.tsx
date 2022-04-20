@@ -169,7 +169,6 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    margin-top: 4.8rem;
     margin-bottom: 2.4rem;
     letter-spacing: -0.025em;
   }
