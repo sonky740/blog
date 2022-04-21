@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "gatsby";
 import GlobalStyle from "../resources/style/globalStyle";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  margin: 0 auto;
-  max-width: 82rem;
-  padding: 4rem 2rem;
-`;
+const Wrapper = styled.div``;
 
 const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4.8rem;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 3.6rem;
+    padding: 1rem 0;
+    max-width: 82rem;
+  }
 
   h1 {
+    position: relative;
     margin: 0;
+  }
+
+  nav {
+    position: relative;
   }
 `;
 
 const Main = styled.main`
+  max-width: 82rem;
+  margin: 0 auto;
   > ol {
     list-style: none;
 
@@ -35,12 +47,12 @@ const Main = styled.main`
         &:hover,
         &:focus {
           box-shadow: 0 0rem 0.6rem rgba(0, 0, 0, 0.2);
-          transform: translateY(-0.4rem);
+          transform: translateY(-0.2rem);
           outline: none;
         }
       }
 
-      +li {
+      + li {
         margin-top: 2.4rem;
       }
     }
@@ -52,7 +64,7 @@ const Layout = ({ location, children }: LayoutType) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location?.pathname === rootPath;
   const header = (
-    <>
+    <div>
       <h1>
         {/* <Link to="/">{title}</Link> */}
         <Link to="/">Sonky</Link>
@@ -60,8 +72,10 @@ const Layout = ({ location, children }: LayoutType) => {
       <nav>
         <Link to="/About">About</Link>
       </nav>
-    </>
+    </div>
   );
+
+  useEffect(() => {});
 
   return (
     <>

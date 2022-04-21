@@ -9,6 +9,10 @@ deckDeckGoHighlightElement();
 
 const Post = styled.article`
   header {
+    padding-bottom: 1.6rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #eee;
+
     h1 {
       margin: 0 0 1.6rem 0;
     }
@@ -16,15 +20,29 @@ const Post = styled.article`
     p {
       font-size: 1.4rem;
       color: #aaa;
+      margin-bottom: 0;
     }
   }
 
-  section {
+  article {
     min-height: 200px;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+    }
+
+    h4 {
+      font-size: 1.6rem;
+    }
   }
 `;
 
 const PostNav = styled.nav`
+  margin-top: 3.2rem;
   ul {
     margin: 0;
   }
@@ -46,7 +64,7 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
           <h1>{post?.frontmatter.title}</h1>
           <p>{post?.frontmatter.date}</p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post?.html! }} />
+        <article dangerouslySetInnerHTML={{ __html: post?.html! }} />
       </Post>
       <PostNav>
         <ul

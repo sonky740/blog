@@ -74,21 +74,10 @@ module.exports = {
         short_name: `Sonky`,
         start_url: `/`,
         background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#fff`,
         display: `minimal-ui`,
-        icon: `src/resources/images/favicon.svg`, // This path is relative to the root of the site.
+        icon: `src/resources/images/favicon.svg`,
       },
     },
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-plugin-typescript`,
-    //   options: {
-    //     isTSX: true,
-    //     jsxPragma: 'jsx',
-    //     allExtensions: true,
-    //   },
-    // }
   ],
 };

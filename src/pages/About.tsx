@@ -12,7 +12,9 @@ const AboutIndex = ({ data, location }: IndexTypes) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="About" />
-      <About></About>
+      <About>
+        <h2>작업 중...</h2>
+      </About>
     </Layout>
   );
 };

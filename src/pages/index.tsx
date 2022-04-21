@@ -34,7 +34,7 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
   if (posts?.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+        <Seo title="Empty posts" />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -46,7 +46,7 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <Seo title="Main" />
       <ol>
         {posts?.map((post: PostTypes) => {
           const title = post.frontmatter.title || post.fields.slug;
@@ -68,7 +68,11 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
                   </section>
                 </Article>
               </Link>
-              <span>{post.frontmatter.tags}</span>
+              {/* <div>
+                {post.frontmatter.tags?.map(tag => {
+                  return <span>{tag}</span>;
+                })}
+              </div> */}
             </li>
           );
         })}
@@ -96,6 +100,7 @@ export const pageQuery = graphql`
           date(formatString: "YYYY년 MM월 DD일")
           title
           description
+          tags
         }
       }
     }
