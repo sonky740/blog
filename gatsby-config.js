@@ -6,7 +6,7 @@ module.exports = {
       summary: `손기연의 블로그`,
     },
     description: `손기연의 블로그`,
-    siteUrl: `https://sonkyblogs.gatsbyjs.io`
+    siteUrl: `https://sonkyblogs.gatsbyjs.io`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -52,8 +52,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-highlight-code`,
             options: {
-              theme: 'one-dark'
-            }
+              theme: "one-dark",
+            },
           },
         ],
       },
@@ -64,7 +64,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: `G-7RW4Q0CZND`,
+        trackingIds: [`G-7RW4Q0CZND`],
       },
     },
     {
@@ -91,4 +91,4 @@ module.exports = {
     //   },
     // }
   ],
-}
+};
