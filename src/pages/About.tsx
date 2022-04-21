@@ -1,8 +1,8 @@
-import * as React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Seo from "../components/Seo";
-import styled from "styled-components";
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
+import styled from 'styled-components';
 
 const About = styled.article``;
 

@@ -1,6 +1,6 @@
-declare module "*.jpg";
-declare module "*.png";
-declare module "*.woff";
+declare module '*.jpg';
+declare module '*.png';
+declare module '*.woff';
 
 interface IndexTypes {
   data: {
@@ -28,7 +28,7 @@ interface IndexTypes {
       };
       frontmatter: {
         title: string;
-      }
+      };
     };
     next: {
       fields: {
@@ -36,7 +36,7 @@ interface IndexTypes {
       };
       frontmatter: {
         title: string;
-      }
+      };
     };
   };
   location: {};

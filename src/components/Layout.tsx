@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
-import { Link } from "gatsby";
-import GlobalStyle from "../resources/style/globalStyle";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'gatsby';
+import GlobalStyle from '../resources/style/globalStyle';
+import styled from 'styled-components';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  padding: 0 1.2rem;
+`;
 
 const Header = styled.header`
   position: sticky;
@@ -26,6 +28,8 @@ const Header = styled.header`
   }
 
   nav {
+    display: flex;
+    column-gap: 0.8rem;
     position: relative;
   }
 `;
@@ -39,21 +43,18 @@ const Main = styled.main`
     > li {
       > a {
         display: block;
-        margin: -1.2rem;
-        padding: 1.2rem;
         border-radius: 1.6rem;
         transition: all 0.3s;
 
         &:hover,
         &:focus {
-          box-shadow: 0 0rem 0.6rem rgba(0, 0, 0, 0.2);
           transform: translateY(-0.2rem);
           outline: none;
         }
       }
 
       + li {
-        margin-top: 2.4rem;
+        margin-top: 3.2rem;
       }
     }
   }
@@ -63,6 +64,7 @@ const Layout = ({ location, children }: LayoutType) => {
   // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location?.pathname === rootPath;
+
   const header = (
     <div>
       <h1>
@@ -74,8 +76,6 @@ const Layout = ({ location, children }: LayoutType) => {
       </nav>
     </div>
   );
-
-  useEffect(() => {});
 
   return (
     <>

@@ -1,6 +1,6 @@
-import * as React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface SeoTypes {
   description?: string;
@@ -21,10 +21,10 @@ const Seo = ({ description, lang, meta, title }: SeoTypes) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = site.siteMetadata?.title;
 
   return (
     <Helmet
@@ -49,16 +49,16 @@ const Seo = ({ description, lang, meta, title }: SeoTypes) => {
         {
           property: `og:type`,
           content: `website`,
-        }
+        },
       ].concat(meta)}
     />
-  )
-}
+  );
+};
 
 Seo.defaultProps = {
   lang: `ko`,
   meta: [],
   description: ``,
-}
+};
 
-export default Seo
+export default Seo;
