@@ -82,13 +82,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true,
-        jsxPragma: 'jsx',
-        allExtensions: true,
-      },
-    }
+    // {
+    //   resolve: `gatsby-plugin-typescript`,
+    //   options: {
+    //     isTSX: true,
+    //     jsxPragma: 'jsx',
+    //     allExtensions: true,
+    //   },
+    // }
   ],
 }

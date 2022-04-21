@@ -35,9 +35,13 @@ const Main = styled.main`
         &:hover,
         &:focus {
           box-shadow: 0 0rem 0.6rem rgba(0, 0, 0, 0.2);
-          transform: translateY(-0.8rem);
+          transform: translateY(-0.4rem);
           outline: none;
         }
+      }
+
+      +li {
+        margin-top: 2.4rem;
       }
     }
   }

@@ -20,6 +20,7 @@ interface IndexTypes {
       };
       excerpt: string;
       html: string;
+      id?: string;
     };
     previous: {
       fields: {

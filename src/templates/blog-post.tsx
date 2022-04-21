@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+import Comments from "../components/Comments";
 deckDeckGoHighlightElement();
 
 const Post = styled.article`
@@ -16,6 +17,10 @@ const Post = styled.article`
       font-size: 1.4rem;
       color: #aaa;
     }
+  }
+
+  section {
+    min-height: 200px;
   }
 `;
 
@@ -69,6 +74,7 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
           </li>
         </ul>
       </PostNav>
+      <Comments id={post?.id!} />
     </Layout>
   );
 };
