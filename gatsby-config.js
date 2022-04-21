@@ -6,7 +6,7 @@ module.exports = {
       summary: `손기연의 블로그`,
     },
     description: `손기연의 블로그`,
-    siteUrl: `https://sonkyblogs.gatsbyjs.io`,
+    siteUrl: `https://sonkyblog.vercel.app/`,
   },
   plugins: [
     `gatsby-plugin-image`,
