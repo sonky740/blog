@@ -104,9 +104,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fff;
+    background: ${props => props.theme.bg};
     line-height: 1.43;
-    color: #222;
+    color: ${props => props.theme.color};
     word-break: keep-all;
     -ms-text-size-adjust: 100%;
     -webkit-test-size-adjust: 100%;
@@ -339,7 +339,7 @@ const GlobalStyle = createGlobalStyle`
 
   a,
   a:visited {
-    color: #222;
+    color: ${props => props.theme.color};
   }
 
   a:link,
