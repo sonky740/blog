@@ -12,7 +12,7 @@ const Article = styled.article`
   h1,
   h2 {
     font-size: 2.4rem;
-    color: ${props => props.theme.color};
+    color: var(--color);
     margin-bottom: 1.6rem;
     margin-top: 0;
   }
