@@ -15,7 +15,6 @@ const Header = styled.header`
   position: sticky;
   top: 0;
   background: var(--bg);
-  transition: background 0.3s;
   z-index: 1000;
 
   > div {
@@ -72,7 +71,6 @@ const ThemeButton = styled.button`
   background: ${({ theme }) => (theme === 'light' ? '#fff' : '#1a1b1e')}
     url(${({ theme }) => (theme === 'light' ? lightImg : darkImg)}) no-repeat
     50% 50%/2.4rem;
-  transition: background 0.3s;
 `;
 
 const Layout = ({ location, children }: LayoutType) => {

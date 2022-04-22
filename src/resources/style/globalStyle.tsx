@@ -122,7 +122,6 @@ const GlobalStyle = createGlobalStyle`
     -ms-text-size-adjust: 100%;
     -webkit-test-size-adjust: 100%;
     --webkit-font-smoothing: antialiased;
-    transition: background .3s, color .3s;
   }
 
   body,
@@ -352,7 +351,6 @@ const GlobalStyle = createGlobalStyle`
   a,
   a:visited {
     color: var(--color);
-    transition: color .3s;
   }
 
   a:link,
