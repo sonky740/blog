@@ -4,17 +4,6 @@ import NotoSansKRMedium from '../fonts/NotoSansKR-Medium.woff';
 import NotoSansKRBold from '../fonts/NotoSansKR-Bold.woff';
 
 const GlobalStyle = createGlobalStyle`
-  :root {
-    body.light {
-      --bg: #fff;
-      --color: #222;
-    }
-
-    body.dark {
-      --bg: #1a1b1e;
-      --color: #fff;
-    }
-  }
   /* reset */
   html,
   body,
@@ -115,9 +104,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--bg);
+    background: #fff;
     line-height: 1.43;
-    color: var(--color);
+    color: #222;
     word-break: keep-all;
     -ms-text-size-adjust: 100%;
     -webkit-test-size-adjust: 100%;
@@ -350,7 +339,7 @@ const GlobalStyle = createGlobalStyle`
 
   a,
   a:visited {
-    color: var(--color);
+    color: #222;
   }
 
   a:link,

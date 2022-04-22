@@ -2,10 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import GlobalStyle from '../resources/style/globalStyle';
 import styled from 'styled-components';
-import useTheme from '../hooks/useTheme';
-
-import lightImg from '../resources/images/light.svg';
-import darkImg from '../resources/images/dark.svg';
 
 const Wrapper = styled.div`
   padding: 0 1.2rem;
@@ -14,7 +10,7 @@ const Wrapper = styled.div`
 const Header = styled.header`
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background: #fff;
   z-index: 1000;
 
   > div {
@@ -64,17 +60,7 @@ const Main = styled.main`
   }
 `;
 
-const ThemeButton = styled.button`
-  display: inline-block;
-  width: 2.4rem;
-  height: 2.4rem;
-  background: ${({ theme }) => (theme === 'light' ? '#fff' : '#1a1b1e')}
-    url(${({ theme }) => (theme === 'light' ? lightImg : darkImg)}) no-repeat
-    50% 50%/2.4rem;
-`;
-
 const Layout = ({ location, children }: LayoutType) => {
-  const [theme, themeHandler] = useTheme();
   // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location?.pathname === rootPath;
@@ -86,12 +72,6 @@ const Layout = ({ location, children }: LayoutType) => {
         <Link to="/">Sonky</Link>
       </h1>
       <nav>
-        <ThemeButton
-          type="button"
-          theme={theme}
-          onClick={themeHandler as () => {}}
-          title={theme === 'light' ? '다크모드로' : '화이트모드로'}
-        />
         <Link to="/About">About</Link>
       </nav>
     </div>
