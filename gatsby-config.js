@@ -58,6 +58,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-no-sourcemaps`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
