@@ -48,6 +48,15 @@ const PostNav = styled.nav`
   }
 `;
 
+const PostNavUl = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`
+
 const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -67,15 +76,7 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
         <article dangerouslySetInnerHTML={{ __html: post?.html! }} />
       </Post>
       <PostNav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <PostNavUl>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -90,7 +91,7 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
               </Link>
             )}
           </li>
-        </ul>
+        </PostNavUl>
       </PostNav>
       <Comments id={post?.id!} />
     </Layout>

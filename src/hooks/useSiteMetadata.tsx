@@ -1,9 +1,9 @@
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface SiteMetaData {
   site: {
-    siteMetadata: SiteSiteMetadata
-  }
+    siteMetadata: SiteSiteMetadata;
+  };
 }
 
 const useSiteMetadata = () => {
@@ -15,8 +15,8 @@ const useSiteMetadata = () => {
             title
             description
             author {
-                name
-                summary
+              name
+              summary
             }
             siteUrl
             utterances {
@@ -26,8 +26,8 @@ const useSiteMetadata = () => {
         }
       }
     `
-  )
-  return site.siteMetadata
-}
+  );
+  return site.siteMetadata;
+};
 
-export default useSiteMetadata
+export default useSiteMetadata;

@@ -1,11 +1,7 @@
 export const lightTheme = {
-  dark: false,
-  bg: '#fff',
-  color: '#222',
+  dark: false
 };
 
 export const darkTheme = {
-  dark: true,
-  bg: '#1a1b1e',
-  color: '#fff',
+  dark: true
 };

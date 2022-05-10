@@ -5,11 +5,13 @@ const GlobalStyle = createGlobalStyle`
     body.light {
       --bg: #fff;
       --color: #222;
+      --reverseBg: #1a1b1e;
     }
 
     body.dark {
       --bg: #1a1b1e;
       --color: #fff;
+      --reverseBg: #fff;
     }
   }
 
