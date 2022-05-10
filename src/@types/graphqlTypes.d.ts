@@ -4314,12 +4314,18 @@ type SitePluginSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
+type SiteSiteMetadataUtterances = {
+  __typename?: 'SiteSiteMetadataUtterances';
+  repo?: Maybe<Scalars['String']>;
+};
+
 type SiteSiteMetadata = {
   author?: Maybe<Scalars['String']>;
   defaultImage?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  utterances?: Maybe<SiteSiteMetadataUtterances>;
 };
 
 type SiteSiteMetadataFilterInput = {

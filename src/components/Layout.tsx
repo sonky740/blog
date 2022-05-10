@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import '../resources/style/fonts.css';
 import GlobalStyle from '../resources/style/globalStyle';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import useTheme from '../hooks/useTheme';
+import { lightTheme, darkTheme } from '../resources/style/theme';
 
 import lightImg from '../resources/images/light.svg';
 import darkImg from '../resources/images/dark.svg';
@@ -83,6 +84,7 @@ const ThemeButton = styled.button`
 const Layout = ({ location, children }: LayoutType) => {
   const { theme, themeHandler } = useTheme();
   const [isScroll, setIsScroll] = useState(false);
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location?.pathname === rootPath;
 
@@ -120,13 +122,13 @@ const Layout = ({ location, children }: LayoutType) => {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <Wrapper data-is-root-path={isRootPath}>
         <Header scrollOn={isScroll}>{header}</Header>
         <Main>{children}</Main>
       </Wrapper>
-    </>
+    </ThemeProvider>
   );
 };
 
