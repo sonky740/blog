@@ -76,9 +76,8 @@ const ThemeButton = styled.button`
   display: inline-block;
   width: 2.4rem;
   height: 2.4rem;
-  background: ${({ theme }) => (theme === 'light' ? '#fff' : '#1a1b1e')}
-    url(${({ theme }) => (theme === 'dark' ? darkImg : lightImg)}) no-repeat
-    50% 50%/2.4rem;
+  background: url(${({ theme }) => (theme === 'dark' ? darkImg : lightImg)})
+    no-repeat 50% 50%/2.4rem;
 `;
 
 const Layout = ({ location, children }: LayoutType) => {

@@ -8,8 +8,6 @@
 
 1.  **블로그 스타트**
 
-    Navigate into your new site’s directory and start it up.
-
     ```
     npm run dev 
     or
