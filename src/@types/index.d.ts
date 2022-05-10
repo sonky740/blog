@@ -2,6 +2,7 @@ declare module '*.jpg';
 declare module '*.png';
 declare module '*.svg';
 declare module '*.woff';
+declare const __PATH_PREFIX__: string;
 
 interface IndexTypes {
   data: {

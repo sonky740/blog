@@ -1,9 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
-import NotoSansKRRegular from '../fonts/NotoSansKR-Regular.woff';
-import NotoSansKRMedium from '../fonts/NotoSansKR-Medium.woff';
-import NotoSansKRBold from '../fonts/NotoSansKR-Bold.woff';
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    body.light {
+      --bg: #fff;
+      --color: #222;
+    }
+
+    body.dark {
+      --bg: #1a1b1e;
+      --color: #fff;
+    }
+  }
+
   /* reset */
   html,
   body,
@@ -104,9 +113,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fff;
+    background: var(--bg);
     line-height: 1.43;
-    color: #222;
+    color: var(--color);
     word-break: keep-all;
     -ms-text-size-adjust: 100%;
     -webkit-test-size-adjust: 100%;
@@ -339,7 +348,7 @@ const GlobalStyle = createGlobalStyle`
 
   a,
   a:visited {
-    color: #222;
+    color: var(--color);
   }
 
   a:link,
@@ -359,28 +368,6 @@ const GlobalStyle = createGlobalStyle`
 
   footer {
     padding: 2.4rem 0;
-  }
-
-  /* fonts */
-  @font-face {
-    font-family: 'NotoSansKR';
-    font-weight: 400;
-    font-style: normal;
-    src: url(${NotoSansKRRegular});
-  }
-  
-  @font-face {
-    font-family: 'NotoSansKR';
-    font-weight: 500;
-    font-style: normal;
-    src: url(${NotoSansKRMedium});
-  }
-  
-  @font-face {
-    font-family: 'NotoSansKR';
-    font-weight: 700;
-    font-style: normal;
-    src: url(${NotoSansKRBold});
   }
 
   /* common */
