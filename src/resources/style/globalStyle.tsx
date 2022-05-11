@@ -116,7 +116,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background: var(--bg);
-    line-height: 1.43;
+    line-height: 1.5;
     color: var(--color);
     word-break: keep-all;
     -ms-text-size-adjust: 100%;
@@ -222,7 +222,7 @@ const GlobalStyle = createGlobalStyle`
   ul li,
   ol li {
     padding-left: 0;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.8rem;
   }
 
   li > p {
@@ -386,6 +386,11 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     white-space: nowrap;
     clip: rect(0, 0, 0, 0);
+  }
+
+  .cancel-line {
+    text-decoration: line-through;
+    opacity: 0.6;
   }
 `;
 

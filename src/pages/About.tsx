@@ -3,12 +3,36 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import styled from 'styled-components';
 import useSiteMetadata from '../hooks/useSiteMetadata';
+import List from '../components/ui/List';
+import OList from '../components/ui/OList';
 
 const About = styled.article`
+  padding-bottom: 6rem;
+
   h2 {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     font-size: 3.2rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  h4 {
+    font-size: 2.4rem;
+  }
+
+  hr {
+    width: 100%;
+    height: 0.1rem;
+    margin: 4rem 0;
+    border: none;
+    background: #aaa;
+  }
+
+  a {
+    text-decoration: underline;
   }
 `;
 
@@ -21,15 +45,62 @@ const AboutIndex = ({ location }: IndexTypes) => {
       <Seo title="About" />
       <About>
         {/* 간단 소개 */}
-        {/* <h2>여기는 어디죠?</h2>
-        <p></p>
-        <ul>
-          <li>Github: </li>
-          <li>PortFolio: </li>
-          <li>Blog: </li>
-        </ul> */}
+        <h2>안녕하세요! 손기연입니다.</h2>
+        <p>
+          서버 엔지니어로 시작하여, 사내 IT 인프라 업무를 지나 5년차 퍼블리셔로
+          지내면서 프론트엔드를 바라보고 있습니다.
+          <br />
+          여기엔 제가 그동안 업무를 해오면서 배운 것과 배울 것들을 올릴
+          생각입니다.
+        </p>
+        <List>
+          <li>
+            Github:{' '}
+            <a
+              href="https://github.com/sonky740"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://github.com/sonky740
+            </a>
+          </li>
+          <li>
+            PortFolio:{' '}
+            <a
+              href="https://sonkypf.gatsbyjs.io"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://sonkypf.gatsbyjs.io
+            </a>
+          </li>
+        </List>
+
+        <hr />
 
         {/* 간단 이력 */}
+        <h3>간단 이력</h3>
+
+        <h4>민앤지 (2021.06 ~ )</h4>
+        <OList>
+          <li>SKT PASS 운영</li>
+          <li>티오르(TIOR) 운영 및 고도화</li>
+          <li className="cancel-line">Sheeeda(캠핑) 구축</li>
+          <li>아파트청약케어 운영 및 고도화</li>
+        </OList>
+
+        <h4>인픽스 (2016.04 ~ 2021.06)</h4>
+        <OList>
+          <li>넥센 히어로즈 사이트 시스템 유지보수</li>
+          <li>효성그룹 및 계열사 홈페이지 리뉴얼</li>
+          <li>KB국민은행 개인 인터넷뱅킹 리뉴얼</li>
+          <li>포스코 차세대 MES 3.0 시스템 UI 개선</li>
+          <li>KB국민은행 차세대 통합인증서 플랫폼 구축</li>
+          <li>고객언어솔루션</li>
+          <li>우리은행 WON기업뱅킹 앱(웹뷰) 구축</li>
+          <li>KB국민은행 오픈뱅킹 고도화</li>
+          <li>우리은행 마이데이터 구축</li>
+        </OList>
       </About>
     </Layout>
   );
