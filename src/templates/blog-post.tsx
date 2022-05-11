@@ -13,7 +13,7 @@ const Post = styled.article`
     margin-bottom: 1.6rem;
     border-bottom: 1px solid #eee;
 
-    h1 {
+    h2 {
       margin: 0 0 1.6rem 0;
     }
 
@@ -42,20 +42,13 @@ const Post = styled.article`
 `;
 
 const PostNav = styled.nav`
-  margin-top: 3.2rem;
-  ul {
-    margin: 0;
-  }
-`;
-
-const PostNavUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   padding: 0;
-  margin: 0;
-`
+  margin: 3.2rem 0 0 0;
+`;
 
 const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -70,28 +63,26 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
       />
       <Post>
         <header>
-          <h1>{post?.frontmatter.title}</h1>
+          <h2>{post?.frontmatter.title}</h2>
           <p>{post?.frontmatter.date}</p>
         </header>
         <article dangerouslySetInnerHTML={{ __html: post?.html! }} />
       </Post>
       <PostNav>
-        <PostNavUl>
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </PostNavUl>
+        <div>
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          )}
+        </div>
+        <div>
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </Link>
+          )}
+        </div>
       </PostNav>
       <Comments id={post?.id!} />
     </Layout>

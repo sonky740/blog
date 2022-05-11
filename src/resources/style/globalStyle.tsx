@@ -115,9 +115,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--bg);
     line-height: 1.5;
-    color: var(--color);
     word-break: keep-all;
     -ms-text-size-adjust: 100%;
     -webkit-test-size-adjust: 100%;
@@ -215,14 +213,43 @@ const GlobalStyle = createGlobalStyle`
     margin-right: 0;
     padding: 0;
     margin-bottom: 2rem;
-    list-style-position: outside;
-    list-style-image: none;
   }
 
-  ul li,
-  ol li {
-    padding-left: 0;
-    margin-bottom: 0.8rem;
+  ul {
+    >li {
+      position: relative;
+      padding-left: 1.2rem;
+      list-style: none;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0.6em;
+        left: 0;
+        width: 0.6rem;
+        height: 0.6rem;
+        background: var(--color);
+        border-radius: 50%;
+      }
+    }
+  }
+  
+  ol {
+    counter-reset: ol-list;
+
+    > li {
+      counter-increment: ol-list;
+      position: relative;
+      padding-left: 2rem;
+      list-style: none;
+
+      &:before {
+        content: counter(ol-list) '.';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
   }
 
   li > p {

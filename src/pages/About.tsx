@@ -3,8 +3,6 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import styled from 'styled-components';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import List from '../components/ui/List';
-import OList from '../components/ui/OList';
 
 const About = styled.article`
   padding-bottom: 6rem;
@@ -53,7 +51,7 @@ const AboutIndex = ({ location }: IndexTypes) => {
           여기엔 제가 그동안 업무를 해오면서 배운 것과 배울 것들을 올릴
           생각입니다.
         </p>
-        <List>
+        <ul>
           <li>
             Github:{' '}
             <a
@@ -74,7 +72,7 @@ const AboutIndex = ({ location }: IndexTypes) => {
               https://sonkypf.gatsbyjs.io
             </a>
           </li>
-        </List>
+        </ul>
 
         <hr />
 
@@ -82,15 +80,15 @@ const AboutIndex = ({ location }: IndexTypes) => {
         <h3>간단 이력</h3>
 
         <h4>민앤지 (2021.06 ~ )</h4>
-        <OList>
+        <ol>
           <li>SKT PASS 운영</li>
           <li>티오르(TIOR) 운영 및 고도화</li>
           <li className="cancel-line">Sheeeda(캠핑) 구축</li>
           <li>아파트청약케어 운영 및 고도화</li>
-        </OList>
+        </ol>
 
         <h4>인픽스 (2016.04 ~ 2021.06)</h4>
-        <OList>
+        <ol>
           <li>넥센 히어로즈 사이트 시스템 유지보수</li>
           <li>효성그룹 및 계열사 홈페이지 리뉴얼</li>
           <li>KB국민은행 개인 인터넷뱅킹 리뉴얼</li>
@@ -100,7 +98,7 @@ const AboutIndex = ({ location }: IndexTypes) => {
           <li>우리은행 WON기업뱅킹 앱(웹뷰) 구축</li>
           <li>KB국민은행 오픈뱅킹 고도화</li>
           <li>우리은행 마이데이터 구축</li>
-        </OList>
+        </ol>
       </About>
     </Layout>
   );

@@ -13,16 +13,22 @@ interface HeaderProps {
   scrollOn: boolean;
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  min-height: 100vh;
+  /* background, color를 body에 설정하고 transition을 주니까 페이지 전환할 때마다 transition이 걸림... 왜지? */
+  background: var(--bg);
+  color: var(--color);
+  transition: background 0.3s, color 0.3s;
+`;
 
 const Header = styled.header<HeaderProps>`
   position: sticky;
   top: 0;
   background: var(--bg);
   z-index: 1000;
-  transition: box-shadow 0.3s;
   box-shadow: ${({ scrollOn }) =>
     scrollOn && '0 0.2rem 2rem rgba(0, 0, 0, 0.2)'};
+  transition: box-shadow 0.3s, background 0.3s;
 
   > div {
     display: flex;
@@ -54,6 +60,12 @@ const Main = styled.main`
     list-style: none;
 
     > li {
+      padding-left: 0;
+
+      &:before {
+        content: none;
+      }
+
       > a {
         display: block;
         border-radius: 1.6rem;
