@@ -8,8 +8,8 @@ module.exports = {
     description: `손기연의 블로그`,
     siteUrl: `https://sonkyblog.vercel.app/`,
     utterances: {
-      repo: 'sonky740/comment'
-    }
+      repo: 'sonky740/comment',
+    },
   },
   plugins: [
     `gatsby-plugin-image`,

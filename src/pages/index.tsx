@@ -36,9 +36,8 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
       <Layout location={location} title={siteTitle}>
         <Seo title="Empty posts" />
         <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
+          포스트가 하나도 없어요!<br />
+          왜 없지...
         </p>
       </Layout>
     );

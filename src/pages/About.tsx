@@ -7,17 +7,17 @@ import useSiteMetadata from '../hooks/useSiteMetadata';
 const About = styled.article`
   padding-bottom: 6rem;
 
-  h2 {
+  h1 {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     font-size: 3.2rem;
   }
 
-  h3 {
+  h2 {
     font-size: 2.8rem;
   }
 
-  h4 {
+  h3 {
     font-size: 2.4rem;
   }
 
@@ -43,7 +43,7 @@ const AboutIndex = ({ location }: IndexTypes) => {
       <Seo title="About" />
       <About>
         {/* 간단 소개 */}
-        <h2>안녕하세요! 손기연입니다.</h2>
+        <h1>안녕하세요! 손기연입니다.</h1>
         <p>
           서버 엔지니어로 시작하여, 사내 IT 인프라 업무를 지나 5년차 퍼블리셔로
           지내면서 프론트엔드를 바라보고 있습니다.
@@ -77,9 +77,9 @@ const AboutIndex = ({ location }: IndexTypes) => {
         <hr />
 
         {/* 간단 이력 */}
-        <h3>간단 이력</h3>
+        <h2>간단 이력</h2>
 
-        <h4>민앤지 (2021.06 ~ )</h4>
+        <h3>민앤지 (2021.06 ~ )</h3>
         <ol>
           <li>SKT PASS 운영</li>
           <li>티오르(TIOR) 운영 및 고도화</li>
@@ -87,7 +87,7 @@ const AboutIndex = ({ location }: IndexTypes) => {
           <li>아파트청약케어 운영 및 고도화</li>
         </ol>
 
-        <h4>인픽스 (2016.04 ~ 2021.06)</h4>
+        <h3>인픽스 (2016.04 ~ 2021.06)</h3>
         <ol>
           <li>넥센 히어로즈 사이트 시스템 유지보수</li>
           <li>효성그룹 및 계열사 홈페이지 리뉴얼</li>

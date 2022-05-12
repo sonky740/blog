@@ -38,6 +38,10 @@ const Post = styled.article`
     h4 {
       font-size: 1.6rem;
     }
+
+    a {
+      text-decoration: underline;
+    }
   }
 `;
 
