@@ -2,7 +2,7 @@
 title: 드디어 시작
 date: '2022-05-12'
 # description: ''
-tags: [gastby starter blog]
+tags: [gastby-starter-blog]
 ---
 
 블로그를 만들어야겠다고 생각한건 작년부터였는데...  

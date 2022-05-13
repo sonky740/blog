@@ -103,14 +103,14 @@ const Layout = ({ location, children }: LayoutType) => {
   const header = (
     <div>
       <h1>
-        <Link to="/">Sonky</Link>
+        <Link to="/">Sonky's Blog</Link>
       </h1>
       <nav>
         <ThemeButton
           type="button"
           theme={theme}
           onClick={themeHandler as () => {}}
-          title={theme === 'light' ? '다크모드로' : '화이트모드로'}
+          title={theme === 'light' ? '현재: 화이트모드' : '현재: 다크모드'}
         />
         <Link to="/About">About</Link>
       </nav>

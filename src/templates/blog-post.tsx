@@ -26,6 +26,7 @@ const Post = styled.article`
 
   article {
     min-height: 200px;
+    font-size: 1.8rem;
 
     h2 {
       font-size: 2.4rem;
@@ -37,10 +38,6 @@ const Post = styled.article`
 
     h4 {
       font-size: 2rem;
-    }
-
-    p {
-      font-size: 1.8rem;
     }
 
     a {
