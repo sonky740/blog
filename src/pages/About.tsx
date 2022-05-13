@@ -43,7 +43,7 @@ const AboutIndex = ({ location }: IndexTypes) => {
       <Seo title="About" />
       <About>
         {/* 간단 소개 */}
-        <h1>안녕하세요! 손기연입니다.</h1>
+        <h1 className="main-color">안녕하세요! 손기연입니다.</h1>
         <p>
           서버 엔지니어로 시작하여, 사내 IT 인프라 업무를 지나 5년차 퍼블리셔로
           지내면서 프론트엔드를 바라보고 있습니다.
@@ -77,7 +77,7 @@ const AboutIndex = ({ location }: IndexTypes) => {
         <hr />
 
         {/* 간단 이력 */}
-        <h2>간단 이력</h2>
+        <h2 className="main-color">간단 이력</h2>
 
         <h3>민앤지 (2021.06 ~ )</h3>
         <ol>

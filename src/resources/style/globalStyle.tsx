@@ -421,6 +421,10 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: line-through;
     opacity: 0.6;
   }
+
+  .main-color {
+    color: var(--mainColor);
+  }
 `;
 
 export default GlobalStyle;
