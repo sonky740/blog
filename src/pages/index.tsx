@@ -25,6 +25,12 @@ const Article = styled.article`
       color: #aaa;
     }
   }
+
+  section {
+    p {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 const BlogIndex = ({ data, location }: IndexTypes) => {

@@ -28,15 +28,19 @@ const Post = styled.article`
     min-height: 200px;
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.4rem;
     }
 
     h3 {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
     }
 
     h4 {
-      font-size: 1.6rem;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.8rem;
     }
 
     a {
