@@ -40,8 +40,8 @@ _글을 작성하다보니 길어져서 이번 글에선 transition만 다루려
     transition 효과가 끝났을 때 이벤트를 주는 이벤트 리스너이다.  
     transition 이벤트 리스너 중에 가장 많이 쓰이는 것 같다. 구글링을 해봐도 관련 글에서 많은 차이가 난다.  
     그리고 transitionend를 쓰게되면 setTimeout을 써야할 곳에 유용하게 대체할 수 있다.  
-    예를 들면 _"아코디언이 열리고 얼럿이 뜨게 해주세요"_ 라는 요청을 들을 때가 있다.  
-    그럼 transition효과를 준 아코디언에서 저 요구사항을 처리하려고 setTimeout을 쓰는 사람이 있다.
+    예를 들면 _"아코디언이 열리고 나서 얼럿이 뜨게 해주세요"_ 라는 요청을 들을 때가 있다.  
+    그럼 transition효과를 준 아코디언에서 저 요구사항을 처리하려고 아래처럼 setTimeout을 쓸 수 있다.
    ```js
    document.querySelector('아코디언 버튼').addEventListener('click', () => {
      setTimeout(() => {
@@ -49,7 +49,7 @@ _글을 작성하다보니 길어져서 이번 글에선 transition만 다루려
      }, 300);
    });
    ```
-   transition-duration을 .3s만큼 줬다고치고, setTimeout을 300만큼 주면 어찌저찌 될 수도 있지만... 생각보다 setTimeout은 정확하지 않다.  
+   css에서 transition-duration을 .3s만큼 줬다고치고, setTimeout을 300만큼 주면 어찌저찌 될 수도 있지만... 생각보다 setTimeout은 정확하지 않다.  
    또한, 만약 transition-duration을 변경하게 되면 setTimeout의 딜레이도 수정해줘야만 한다. 그래서 아래처럼 transitionend를 활용할 수 있다.
    ```js
    document.querySelector('열리는 아코디언 컨텐츠').addEventListener('transitionend', () => {
