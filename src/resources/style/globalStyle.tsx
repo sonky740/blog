@@ -184,13 +184,6 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: -0.025em;
   }
 
-  cite,
-  em,
-  dfn,
-  address {
-    font-style: normal;
-  }
-
   fieldset,
   iframe {
     border: 0 none;
@@ -223,6 +216,10 @@ const GlobalStyle = createGlobalStyle`
       padding-left: 1.2rem;
       list-style: none;
 
+      +li {
+        margin-top: 1rem;
+      }
+
       &:before {
         content: "";
         position: absolute;
@@ -244,6 +241,10 @@ const GlobalStyle = createGlobalStyle`
       position: relative;
       padding-left: 2rem;
       list-style: none;
+
+      +li {
+        margin-top: 1rem;
+      }
 
       &:before {
         content: counter(ol-list) '.';
@@ -291,12 +292,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1px;
     opacity: 0;
     white-space: nowrap;
-  }
-
-  i,
-  em,
-  address {
-    font-style: normal;
   }
 
   input,

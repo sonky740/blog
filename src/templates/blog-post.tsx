@@ -46,11 +46,18 @@ const Post = styled.article`
 
 const PostNav = styled.nav`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 3.2rem 0 0 0;
+
+  > div {
+    flex: 1;
+    + div {
+      text-align: right;
+    }
+  }
 `;
 
 const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
