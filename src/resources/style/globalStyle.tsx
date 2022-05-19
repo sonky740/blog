@@ -401,6 +401,23 @@ const GlobalStyle = createGlobalStyle`
     padding: 2.4rem 0;
   }
 
+  /* gatsby-remark-vscode */
+  body.light {
+    .grvsc-container {
+      background-color: #f8f8f8 !important;
+    }
+  }
+
+  body.dark {
+    .grvsc-container {
+      background-color: #282c34 !important;
+    }
+  }
+
+  .grvsc-container {
+    margin: 1.6rem 0;
+  }
+
   /* common */
   a.link,
   button.link {

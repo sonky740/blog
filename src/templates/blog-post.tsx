@@ -3,9 +3,7 @@ import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import Comments from '../components/Comments';
-deckDeckGoHighlightElement();
 
 const Post = styled.article`
   header {

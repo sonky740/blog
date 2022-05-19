@@ -53,9 +53,15 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-highlight-code`,
+            resolve: "gatsby-remark-vscode",
             options: {
-              theme: 'one-dark',
+              theme: {
+                default: "Dark+ (default dark)",
+                parentSelector: {
+                  "body.dark": "Dark+ (default dark)",
+                  "body.light": "Light+ (default light)",
+                },
+              },
             },
           },
         ],

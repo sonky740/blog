@@ -32,8 +32,8 @@ gatsby 경험자니까 무난할 줄 알았다. 하지만 오산이었다. 포�
 // gatsby-ssr.js
 const React = require('react');
 
-exports.onRenderBody = ({ setPostBodyComponents }) => {
-  setPostBodyComponents([
+exports.onRenderBody = ({ setPreBodyComponents }) => {
+  setPreBodyComponents([
     React.createElement('script', {
       dangerouslySetInnerHTML: {
         __html: `

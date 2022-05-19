@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useLayoutEffect, useCallback } from 'react';
 
 /** @see gatsby-ssr.js */
 declare global {
@@ -12,7 +12,7 @@ declare global {
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window !== 'undefined') {
       setTheme(window.__theme);
     }

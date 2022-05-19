@@ -17,23 +17,24 @@ const Wrapper = styled.div`
   min-height: 100vh;
   background: var(--bg);
   color: var(--color);
-  /* transition: background 0.3s, color 0.3s; */
+  transition: background 0.3s, color 0.3s;
 `;
 
 const Header = styled.header<HeaderProps>`
   position: sticky;
   top: 0;
   background: var(--bg);
+  margin: 0 0 3.6rem;
   z-index: 1000;
   box-shadow: ${({ scrollOn }) =>
     scrollOn && '0 0.2rem 2rem rgba(0, 0, 0, 0.2)'};
-  /* transition: box-shadow 0.3s, background 0.3s; */
+  transition: box-shadow 0.3s, background 0.3s;
 
   > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto 3.6rem;
+    margin: auto;
     padding: 1rem 1.2rem;
     max-width: 82rem;
   }
