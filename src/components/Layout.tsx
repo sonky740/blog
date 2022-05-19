@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState, useRef } from 'react';
 import { Link } from 'gatsby';
 import '../resources/style/fonts.css';
 import GlobalStyle from '../resources/style/globalStyle';
@@ -29,6 +29,16 @@ const Header = styled.header<HeaderProps>`
   box-shadow: ${({ scrollOn }) =>
     scrollOn && '0 0.2rem 2rem rgba(0, 0, 0, 0.2)'};
   transition: box-shadow 0.3s, background 0.3s;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: var(--scrollPercent);
+    height: 2px;
+    background: var(--reverseBg);
+  }
 
   > div {
     display: flex;
@@ -96,6 +106,7 @@ const ThemeButton = styled.button`
 const Layout = ({ location, children }: LayoutType) => {
   const { theme, themeHandler } = useTheme();
   const [isScroll, setIsScroll] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location?.pathname === rootPath;
@@ -117,19 +128,33 @@ const Layout = ({ location, children }: LayoutType) => {
     </div>
   );
 
-  useEffect(() => {
-    function scrollY() {
+  useLayoutEffect(() => {
+    const scrollYHandler = () => {
       if (window.scrollY > 25) {
         setIsScroll(true);
       } else {
         setIsScroll(false);
       }
-    }
 
-    window.addEventListener('scroll', scrollY);
+      const scrollY = window.scrollY;
+      const clientHeight = document.body.clientHeight;
+      const scrollHeight = document.body.scrollHeight;
+      const realHeight = scrollHeight - clientHeight;
+      const scrollPercent = (scrollY / realHeight) * 100;
+
+      headerRef.current?.style.setProperty(
+        '--scrollPercent',
+        `${scrollPercent}%`
+      );
+    };
+    scrollYHandler();
+
+    window.addEventListener('scroll', scrollYHandler);
+    window.addEventListener('resize', scrollYHandler);
 
     return () => {
-      window.removeEventListener('scroll', scrollY);
+      window.removeEventListener('scroll', scrollYHandler);
+      window.removeEventListener('resize', scrollYHandler);
     };
   }, []);
 
@@ -137,7 +162,9 @@ const Layout = ({ location, children }: LayoutType) => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <Wrapper data-is-root-path={isRootPath}>
-        <Header scrollOn={isScroll}>{header}</Header>
+        <Header ref={headerRef} scrollOn={isScroll}>
+          {header}
+        </Header>
         <Main>{children}</Main>
       </Wrapper>
     </ThemeProvider>

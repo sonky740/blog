@@ -82,7 +82,7 @@ exports.onRenderBody = ({ setPreBodyComponents }) => {
 
 ```tsx
 // useTheme.tsx
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useLayoutEffect, useCallback } from 'react';
 
 // global로 선언한 타입은 gatsby-ssr.js에 있다.
 declare global {
@@ -96,7 +96,7 @@ declare global {
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window !== 'undefined') {
       setTheme(window.__theme);
     }
