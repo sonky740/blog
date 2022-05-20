@@ -111,6 +111,6 @@ document.querySelector('.test').addEventListener('animationend', function (e) {
 
 위처럼 if 문으로 animationName을 지정하여 처리하면 된다.
 
-animation 이벤트 리서느러르 써서 만든 내 개인 가이드를 보면 내가 어떤식으로 실무에서 쓰고있는지 아래 링크에서 볼 수 있다.  
-링크: <a href="https://sonky740.github.io/Guide_es6/dist/html/modal.html" target="_blank" rel="noreferrer" title="MDN 새창 열기">SKY.Modal</a>  
+animation 이벤트 리스너를 써서 만든 내 개인 가이드를 보면 내가 어떤식으로 실무에서 쓰고있는지 아래 링크에서 볼 수 있다.  
+링크: <a href="https://sonky740.github.io/Guide_es6/dist/html/modal.html" target="_blank" rel="noreferrer" title="SKY 가이드 새창 열기">SKY.Modal</a>  
 여기도 TransitionEvent 글과 마찬가지로 modal.showing처럼 쓰인게 있는데, CustomEvent와 animation 이벤트 리스너를 조합하여 커스텀 이벤트를 만든 것이다. CustomEvent는 추후에 작성할 예정이다.
