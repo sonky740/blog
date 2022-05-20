@@ -17,9 +17,9 @@ _글을 작성하다보니 길어져서 이번 글에선 transition만 다룬다
 
    ```js
    new TransitionEvent('type', {
-     propertyName: 'PropertyName',
-     elapsedTime: 'Float',
-     pseudoElement: 'PseudoElementName',
+     propertyName: 'aPropertyName',
+     elapsedTime: aFloat,
+     pseudoElement: 'aPseudoElementName',
    });
    ```
 
@@ -59,6 +59,60 @@ _글을 작성하다보니 길어져서 이번 글에선 transition만 다룬다
      });
    ```
    위처럼 작성하게되면 transition-duration을 변경하여도 그에 맞춰 스크립트를 수정할 일이 없게 되고, 부정확한 setTimeout보다 훨씬 정확한 타이밍을 얻을 수 있을 것이다.
+
+마지막으로 TransitionEvent를 쓸 때 주의할 점이 있는데 transition을 한 요소에 여러개를 넣는 경우가 있다. 예를 들어서 아래처럼 background와 width 2가지의 transition효과를 주게되면
+
+```scss
+// scss
+.test {
+  width: 200px;
+  height: 200px;
+  background: red;
+  transition: all 0.3s;
+
+  &.on {
+    background: blue;
+    width: 300px;
+  }
+}
+```
+
+```js
+document.querySelector('.test').addEventListener('transitionstart', function (e) {
+    console.log(e);
+  });
+document.querySelector('.test').addEventListener('transitionend', function (e) {
+  console.log(e);
+});
+```
+
+아래처럼 console이 각각 2개씩 찍히게된다.
+
+```js
+// transitionstart
+TransitionEvent {isTrusted: true, propertyName: 'background-color', elapsedTime: 0, pseudoElement: '', type: 'transitionstart', …}
+TransitionEvent {isTrusted: true, propertyName: 'width', elapsedTime: 0, pseudoElement: '', type: 'transitionstart', …}
+// transitionend
+TransitionEvent {isTrusted: true, propertyName: 'background-color', elapsedTime: 0.3, pseudoElement: '', type: 'transitionend', …}
+TransitionEvent {isTrusted: true, propertyName: 'width', elapsedTime: 0.3, pseudoElement: '', type: 'transitionend', …}
+```
+
+이러면 주고자하는 기능 역시 2번씩 실행되기 때문에
+
+```js
+document.querySelector('.test').addEventListener('transitionstart', function (e) {
+    if (e.propertyName === 'width') {
+      console.log(e);
+    }
+  });
+document.querySelector('.test').addEventListener('transitionend', function (e) {
+  if (e.propertyName === 'width') {
+    console.log(e);
+  }
+});
+``` 
+
+위처럼 if 문으로 propertyName을 지정하여 처리하면 된다.
 
 transition 이벤트 리스너를 써서 만든 내 개인 가이드를 보면 내가 어떤식으로 실무에서 쓰고있는지 아래 링크에서 볼 수 있다.  
 링크: <a href="https://sonky740.github.io/Guide_es6/dist/html/accordion.html" target="_blank" rel="noreferrer" title="MDN 새창 열기">SKY.Accordion</a>  

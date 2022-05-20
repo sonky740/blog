@@ -41,6 +41,18 @@ const Post = styled.article`
     a {
       text-decoration: underline;
     }
+
+    em {
+      opacity: 0.6;
+    }
+
+    strong {
+      opacity: 1;
+
+      em {
+        opacity: inherit;
+      }
+    }
   }
 `;
 
