@@ -98,10 +98,10 @@ AnimationEvent {isTrusted: true, animationName: 'test2', elapsedTime: 0.6, pseu
 
 ```js
 document.querySelector('.test').addEventListener('animationstart', function (e) {
-    if (e.animationName === 'test') {
-      console.log(e);
-    }
-  });
+  if (e.animationName === 'test') {
+    console.log(e);
+  }
+});
 document.querySelector('.test').addEventListener('animationend', function (e) {
   if (e.animationName === 'test ') {
     console.log(e);
