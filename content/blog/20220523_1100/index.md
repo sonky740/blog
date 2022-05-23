@@ -1,6 +1,6 @@
 ---
 title: CustomEvent, dispatchEvent
-date: '2022-05-23'
+date: '2022-05-23 11:00:00'
 # description: ''
 tags: [CustomEvent, dispatchEvent]
 ---

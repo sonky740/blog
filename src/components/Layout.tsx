@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'gatsby';
 import '../resources/style/fonts.css';
 import GlobalStyle from '../resources/style/globalStyle';
@@ -64,7 +64,7 @@ const Header = styled.header<HeaderProps>`
 const Main = styled.main`
   max-width: 82rem;
   margin: 0 auto;
-  padding: 0 1.2rem;
+  padding: 0 1.2rem 8rem;
 
   > ol {
     list-style: none;
@@ -128,15 +128,15 @@ const Layout = ({ location, children }: LayoutType) => {
     </div>
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const scrollYHandler = () => {
-      if (window.scrollY > 25) {
+      const scrollY = window.scrollY;
+      if (scrollY > 25) {
         setIsScroll(true);
       } else {
         setIsScroll(false);
       }
 
-      const scrollY = window.scrollY;
       const clientHeight = document.body.clientHeight;
       const scrollHeight = document.body.scrollHeight;
       const realHeight = scrollHeight - clientHeight;

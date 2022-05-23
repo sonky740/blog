@@ -4,17 +4,18 @@ import useSiteMetadata from '../hooks/useSiteMetadata';
 
 const Comments = ({ id }: { id: string }) => {
   const site = useSiteMetadata();
-  const { repo } = site.utterances ?? { repo : undefined }
+  const { repo } = site.utterances ?? { repo: undefined };
   const theme = useContext(ThemeContext);
   const containerRef = useRef<HTMLDivElement>(null);
   const isUtterancesCreated = useRef(false);
 
   useEffect(() => {
-    if(!repo) return;
+    if (!repo) return;
     let themeMode: any;
 
-    if(!isUtterancesCreated.current) {
-      themeMode = document.body.dataset.theme === 'dark' ? 'github-dark' : 'github-light';
+    if (!isUtterancesCreated.current) {
+      themeMode =
+        document.body.dataset.theme === 'dark' ? 'github-dark' : 'github-light';
     } else {
       themeMode = theme.dark ? 'github-dark' : 'github-light';
     }
@@ -27,31 +28,36 @@ const Comments = ({ id }: { id: string }) => {
         'issue-term': id,
         label: 'comment',
         theme: themeMode,
-        crossorigin: 'anonymoues',
-        async: 'true'
-      }
+        crossorigin: 'anonymous',
+        async: 'true',
+      };
       Object.entries(attributes).forEach(([key, value]) => {
-        comment.setAttribute(key, value)
-      })
-      containerRef.current?.appendChild(comment)
-      isUtterancesCreated.current = true
-    }
+        comment.setAttribute(key, value);
+      });
+      containerRef.current?.appendChild(comment);
+      isUtterancesCreated.current = true;
+    };
 
-    const utterancesEl = containerRef.current?.querySelector('iframe.utterances-frame') as HTMLIFrameElement
+    const utterancesEl = containerRef.current?.querySelector(
+      'iframe.utterances-frame'
+    ) as HTMLIFrameElement;
 
     const postThemeMessage = () => {
-      if (!utterancesEl) return
+      if (!utterancesEl) return;
       const message = {
-        type: "set-theme",
+        type: 'set-theme',
         theme: themeMode,
-      }
-      utterancesEl?.contentWindow?.postMessage(message, 'https://utteranc.es/client.js')
-    }
+      };
+      utterancesEl?.contentWindow?.postMessage(
+        message,
+        'https://utteranc.es/client.js'
+      );
+    };
 
     isUtterancesCreated.current ? postThemeMessage() : createUtterancesEl();
   }, [id, repo, theme.dark]);
 
-  return <div ref={containerRef} />;
+  return <div ref={containerRef} style={{ minHeight: '269px' }} />;
 };
 
 export default Comments;
