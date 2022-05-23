@@ -13,12 +13,12 @@ Javascript의 addEventListener가 기본으로 제공하는 100가지 정도의 
 ```js
 // CustomEvent 생성
 const 커스텀_변수명 = new CustomEvent('커스텀 이벤트 명', {
-    // options
-    detail: {
-        변수명: 원하는 값
-    }, // 기본값 null
-    bubbles: boolean, // 기본값: false
-    cancelable: boolean // 기본값: false
+  // options
+  detail: {
+      변수명: 원하는 값 // 지정하고자 하는 세부 정보
+  }, // 기본값 null
+  bubbles: boolean, // 이벤트 버블링 유무, 기본값: false
+  cancelable: boolean // 브라우저 기본동작 취소유무 true시 event.preventDefault() 기본값: false
 });
 ```
 
@@ -60,12 +60,14 @@ this._element.addEventListener('animationend', () => complete());
 const modal = document.querySelector('[data-modal]');
 modal.addEventListener('modal.shown', function (e) {
   console.log(e.detail.target, e.detail.trigger);
+  // e.detail.target: [data-modal];
+  // e.detail.trigger: [data-modal-trigger];
 });
 ```
 
-위 코드를 설명하자면 modal이 있는 페이지에서 modal.shown 이벤트 리스너를 호출하면 modal을 여는 버튼을 클릭 했을 때 modal의 animationend가 끝나면 저 커스텀 이벤트가 실행된다.
+위 코드를 설명하자면 modal이 있는 페이지에서 modal.shown 이벤트 리스너를 호출하면 modal을 여는 버튼을 클릭했을 때 modal의 animationend가 끝나면 저 커스텀 이벤트가 실행된다.
 
-이렇게 내가 원하는 시점에 콜백을 주기에 용이하게끔 CustomEvent를 사용할 수 있다.
+이렇게 내가 원하는 시점에 콜백을 주기에 쉽게끔 CustomEvent를 사용할 수 있다.
 
 참고로 IE에선 아래의 polyfill없이는 지원하지 않는다.
 
