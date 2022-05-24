@@ -2,7 +2,7 @@
 title: EventHandler (feat. bootstrap 5)
 date: '2022-05-23 16:00:00'
 # description: ''
-tags: [bootstrap5, EventHandler]
+keywords: [bootstrap5, EventHandler, addEventListener, CustomEvent]
 ---
 
 <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank" rel="noreferrer" title="bootstrap5 새창 열기">bootstrap 5</a>를 써본 사람은 알겠지만 내가 만든 <a href="https://sonky740.github.io/Guide_es6/dist/html/" target="_blank" rel="noreferrer" title="SKY_Guide 새창 열기">UI Component</a>가 비슷하다는 것을 알 것이다.  
@@ -29,7 +29,7 @@ EventHandler.one(Element, type, listener); // once: true
 
 EventHandler는 이벤트 타겟도 함수 안에서 선언해준다. 이걸 보자면 jQuery과 비슷한 구조를 되어 있다.  
 실제로 아래 EventHandler의 4가지 기능 모두 사용법이 jQuery와 유사하다.  
-또한 내부적으로 jQuery도 지원해줘서 같이 사용할 수 있다.  
+또한 내부적으로 jQuery도 지원해줘서 같이 사용할 수 있다.
 
 ```js
 // event-handler.js에서 발췌
@@ -98,6 +98,7 @@ const EventHandler = {
      임의값: 임의값1,
    });
    ```
+
    차이점은 보다시피 이벤트 세부 정보를 지정할 때 detail을 쓸 필요 없고,  
    dispatchEvent로 따로 안 붙여도 된다. EventHandler.trigger()를 선언한 곳에서 바로 dispatch된다. 그래서 CustomEvent 변수를 따로 지정할 필요도 없다.
 

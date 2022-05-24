@@ -19,6 +19,7 @@ interface IndexTypes {
         title: string;
         description: string;
         date: string;
+        keywords: string[];
       };
       excerpt: string;
       html: string;

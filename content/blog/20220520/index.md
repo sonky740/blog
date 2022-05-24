@@ -2,7 +2,7 @@
 title: TransitionEvent, AnimationEvent (2)
 date: '2022-05-20'
 # description: ''
-tags: [TransitionEvent, AnimationEvent, CustomEvent]
+keywords: [TransitionEvent, AnimationEvent, animationiteration, aniamtionstart, animationcancel, animationend, CustomEvent]
 ---
 
 이전 글에 이어 이번 글에선 AnimationEvent에 대해 알아보자.

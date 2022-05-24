@@ -2,7 +2,7 @@
 title: 간단할줄 알았던 블로그 만들기
 date: '2022-05-16'
 # description: ''
-tags: [gastby-starter-blog, 다크 모드, utterances]
+keywords: [gatsbyjs, gastby-starter-blog, 다크 모드, utterances]
 ---
 
 난 2년 전에 포트폴리오를 만들 때 gatsbyJS를 썼다.  

@@ -7,9 +7,14 @@ interface SeoTypes {
   lang?: string;
   meta: [];
   title?: string;
+  post?: {
+    frontmatter: {
+      keywords: string[];
+    };
+  };
 }
 
-const Seo = ({ description, lang, meta, title }: SeoTypes) => {
+const Seo = ({ description, lang, meta, title, post }: SeoTypes) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -23,6 +28,7 @@ const Seo = ({ description, lang, meta, title }: SeoTypes) => {
     `
   );
 
+  const frontmatter = post?.frontmatter;
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
 
@@ -41,6 +47,10 @@ const Seo = ({ description, lang, meta, title }: SeoTypes) => {
         {
           property: `og:title`,
           content: title,
+        },
+        {
+          property: `keywords`,
+          content: frontmatter?.keywords,
         },
         {
           property: `og:description`,

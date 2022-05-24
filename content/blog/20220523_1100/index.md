@@ -2,7 +2,7 @@
 title: CustomEvent, dispatchEvent
 date: '2022-05-23 11:00:00'
 # description: ''
-tags: [CustomEvent, dispatchEvent]
+keywords: [CustomEvent, dispatchEvent]
 ---
 
 Javascript의 addEventListener가 기본으로 제공하는 100가지 정도의 이벤트리스너를 말고 이벤트를 직접 만들 수 있는 CustomEvent를 알아보자.  

@@ -2,7 +2,7 @@
 title: TransitionEvent, AnimationEvent (1)
 date: '2022-05-19'
 # description: ''
-tags: [TransitionEvent, AnimationEvent, CustomEvent]
+keywords: [TransitionEvent, AnimationEvent, transitionrun, transitioncancel, transitionstart, transitionend,  CustomEvent]
 ---
 
 스타일을 작성할 때 단조로움을 피하기 위해서 transition과 animation 효과를 많이 쓰게 된다.  

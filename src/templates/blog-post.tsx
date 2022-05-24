@@ -82,6 +82,7 @@ const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
       <Seo
         title={post?.frontmatter.title}
         description={post?.frontmatter.description || post?.excerpt}
+        post={post}
       />
       <Post>
         <header>
@@ -132,6 +133,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY년 MM월 DD일")
         description
+        keywords
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

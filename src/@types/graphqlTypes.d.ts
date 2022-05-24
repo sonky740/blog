@@ -4383,7 +4383,7 @@ type CreatePagesQuery = {
       previous?: PreviousOrNextFragment | null;
     }>;
   };
-  tags: { group: Array<{ fieldValue?: string | null }> };
+  keywords: { group: Array<{ fieldValue?: string | null }> };
   markdowns: {
     nodes: Array<{
       id: string;
