@@ -165,7 +165,7 @@ const Layout = ({ location, children }: LayoutType) => {
         <Header ref={headerRef} scrollOn={isScroll}>
           {header}
         </Header>
-        <Main>{children}</Main>
+        <Main role="main">{children}</Main>
       </Wrapper>
     </ThemeProvider>
   );
