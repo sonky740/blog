@@ -42,7 +42,7 @@ const Seo = ({ description, lang, meta, title, post }: SeoTypes) => {
       meta={[
         {
           name: `google-site-verification`,
-          content: `7QkL6QRJHb45Cp_E`
+          content: `7QkL6QRJHb45Cp_E-AcQv72CE3EYeyiGz82Kc1TFJNQ`
         },
         {
           name: `description`,
