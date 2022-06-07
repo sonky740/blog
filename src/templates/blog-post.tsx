@@ -13,6 +13,7 @@ const Post = styled.article`
 
     h2 {
       margin: 0 0 1.6rem 0;
+      color: var(--mainColor);
     }
 
     p {
