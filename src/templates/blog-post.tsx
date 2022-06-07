@@ -53,6 +53,13 @@ const Post = styled.article`
         opacity: inherit;
       }
     }
+
+    p {
+      img {
+        display: block;
+        margin: auto;
+      }
+    }
   }
 `;
 

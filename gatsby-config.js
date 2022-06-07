@@ -30,7 +30,18 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
+        plugins: [{
+            resolve: "gatsby-remark-vscode",
+            options: {
+              theme: {
+                default: "Dark+ (default dark)",
+                parentSelector: {
+                  "body.dark": "Dark+ (default dark)",
+                  "body.light": "Light+ (default light)",
+                },
+              },
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -45,25 +56,6 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-vscode",
-            options: {
-              theme: {
-                default: "Dark+ (default dark)",
-                parentSelector: {
-                  "body.dark": "Dark+ (default dark)",
-                  "body.light": "Light+ (default light)",
-                },
-              },
-            },
-          },
         ],
       },
     },

@@ -1,0 +1,145 @@
+import React, { useState, useCallback, useEffect } from 'react';
+import { Link, graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
+import styled from 'styled-components';
+
+const Article = styled.article`
+  p {
+    margin-bottom: 0;
+  }
+
+  h1,
+  h2 {
+    font-size: 2.4rem;
+    color: var(--mainColor);
+    margin-bottom: 1.6rem;
+    margin-top: 0;
+  }
+
+  header {
+    margin-bottom: 1.6rem;
+
+    small {
+      font-size: 1.4rem;
+      color: #aaa;
+    }
+  }
+
+  section {
+    p {
+      font-size: 1.8rem;
+    }
+  }
+`;
+
+const BlogIndex = ({ data, location }: IndexTypes) => {
+  const [loading, setLoading] = useState(false);
+  const [list, setList] = useState([]);
+  const [listLimit, setListLimit] = useState(6);
+  const siteTitle = data?.site?.siteMetadata?.title || `Title`;
+  const posts = data?.allMarkdownRemark.nodes;
+
+  const initHandler = () => {
+
+  }
+
+  const moreHandler = useCallback(() => {
+    if(loading) return false;
+
+    console.log(listLimit);
+  }, [loading, listLimit]);
+
+  const scrollDetection = useCallback(() => {
+    const scrollHeight = document.body.scrollHeight;
+    const offsetHeight = document.body.offsetHeight;
+    const contentHeight = scrollHeight - offsetHeight;
+    const scrollY = window.scrollY;
+
+    if (contentHeight === scrollY) {
+      moreHandler();
+    }
+  }, [moreHandler]);
+
+  useEffect(() => {
+    initHandler();
+
+    window.addEventListener('scroll', scrollDetection);
+    return () => {
+      window.removeEventListener('scroll', scrollDetection);
+    };
+  }, [scrollDetection]);
+
+  if (posts?.length === 0) {
+    return (
+      <Layout location={location} title={siteTitle}>
+        <Seo title="Empty posts" />
+        <p>
+          포스트가 하나도 없어요!
+          <br />왜 없지...
+        </p>
+      </Layout>
+    );
+  }
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <Seo title="Main" />
+      <ol>
+        {posts?.map((post: PostTypes) => {
+          const title = post.frontmatter.title || post.fields.slug;
+
+          return (
+            <li key={post.fields.slug}>
+              <Link to={post.fields.slug}>
+                <Article>
+                  <header>
+                    <h2>{title}</h2>
+                    <small>{post.frontmatter.date}</small>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: post.frontmatter.description || post.excerpt,
+                      }}
+                    />
+                  </section>
+                </Article>
+              </Link>
+              {/* <div>
+                {post.frontmatter.tags?.map(tag => {
+                  return <span>{tag}</span>;
+                })}
+              </div> */}
+            </li>
+          );
+        })}
+      </ol>
+    </Layout>
+  );
+};
+
+export default BlogIndex;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "YYYY년 MM월 DD일")
+          title
+          description
+        }
+      }
+    }
+  }
+`;
