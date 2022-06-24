@@ -34,7 +34,7 @@ const About = styled.article`
   }
 `;
 
-const AboutIndex = ({ location }: IndexTypes) => {
+const AboutIndex: React.FC<IndexType> = ({ location }) => {
   const site = useSiteMetadata();
   const siteTitle = site.title || `Title`;
 

@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-interface SeoTypes {
+interface SeoType {
   description?: string;
   lang?: string;
-  meta: [];
+  meta?: [];
   title?: string;
   post?: {
     frontmatter: {
@@ -14,7 +14,7 @@ interface SeoTypes {
   };
 }
 
-const Seo = ({ description, lang, meta, title, post }: SeoTypes) => {
+const Seo: React.FC<SeoType> = ({ description, lang, meta, title, post }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -42,7 +42,7 @@ const Seo = ({ description, lang, meta, title, post }: SeoTypes) => {
       meta={[
         {
           name: `google-site-verification`,
-          content: `7QkL6QRJHb45Cp_E-AcQv72CE3EYeyiGz82Kc1TFJNQ`
+          content: `7QkL6QRJHb45Cp_E-AcQv72CE3EYeyiGz82Kc1TFJNQ`,
         },
         {
           name: `description`,
@@ -64,7 +64,7 @@ const Seo = ({ description, lang, meta, title, post }: SeoTypes) => {
           property: `og:type`,
           content: `website`,
         },
-      ].concat(meta)}
+      ].concat(meta!)}
     />
   );
 };

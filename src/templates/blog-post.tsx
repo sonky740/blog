@@ -80,7 +80,7 @@ const PostNav = styled.nav`
   }
 `;
 
-const BlogPostTemplate: React.FC<IndexTypes> = ({ data, location }) => {
+const BlogPostTemplate: React.FC<IndexType> = ({ data, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;

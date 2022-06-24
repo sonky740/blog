@@ -33,7 +33,7 @@ const Article = styled.article`
   }
 `;
 
-const BlogIndex = ({ data, location }: IndexTypes) => {
+const BlogIndex: React.FC<IndexType> = ({ data, location }) => {
   const siteTitle = data?.site?.siteMetadata?.title || `Title`;
   const posts = data?.allMarkdownRemark.nodes;
 
@@ -42,8 +42,8 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
       <Layout location={location} title={siteTitle}>
         <Seo title="Empty posts" />
         <p>
-          포스트가 하나도 없어요!<br />
-          왜 없지...
+          포스트가 하나도 없어요!
+          <br />왜 없지...
         </p>
       </Layout>
     );
@@ -53,7 +53,7 @@ const BlogIndex = ({ data, location }: IndexTypes) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="Main" />
       <ol>
-        {posts?.map((post: PostTypes) => {
+        {posts?.map((post: PostType) => {
           const title = post.frontmatter.title || post.fields.slug;
 
           return (

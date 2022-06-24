@@ -4,7 +4,7 @@ declare module '*.svg';
 declare module '*.woff';
 declare const __PATH_PREFIX__: string;
 
-interface IndexTypes {
+interface IndexType {
   data: {
     site: {
       siteMetadata: {
@@ -51,7 +51,7 @@ interface LayoutType {
   children: React.ReactNode;
 }
 
-interface PostTypes {
+interface PostType {
   frontmatter: {
     title: string;
     date: string;

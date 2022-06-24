@@ -103,7 +103,7 @@ const ThemeButton = styled.button`
     no-repeat 50% 50%/2.4rem;
 `;
 
-const Layout = ({ location, children }: LayoutType) => {
+const Layout: React.FC<LayoutType> = ({ location, children }) => {
   const { theme, themeHandler } = useTheme();
   const [isScroll, setIsScroll] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
