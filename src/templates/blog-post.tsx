@@ -61,6 +61,11 @@ const Post = styled.article`
         margin: auto;
       }
     }
+
+    hr {
+      margin: 1.6rem 0;
+      border-color: var(--mainColor);
+    }
   }
 `;
 

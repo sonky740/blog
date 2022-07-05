@@ -158,10 +158,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   blockquote {
-    color: #4f5969;
-    margin: 2rem 3.2rem 2rem -2.4rem;
-    padding: 0 0 0 2.4rem;
-    border-left: 0.4rem solid #005b99;
+    color: #767676;
+    margin: 2rem 3.2rem 2rem 0;
+    padding: 0 0 0 1.2rem;
+    border-left: 0.4rem solid var(--mainColor);
     font-size: 1.8rem;
     font-style: italic;
     margin-bottom: 3.2rem;
