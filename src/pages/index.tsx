@@ -4,35 +4,6 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import styled from 'styled-components';
 
-const Article = styled.article`
-  p {
-    margin-bottom: 0;
-  }
-
-  h1,
-  h2 {
-    font-size: 2.4rem;
-    color: var(--mainColor);
-    margin-bottom: 1.6rem;
-    margin-top: 0;
-  }
-
-  header {
-    margin-bottom: 1.6rem;
-
-    small {
-      font-size: 1.4rem;
-      color: #aaa;
-    }
-  }
-
-  section {
-    p {
-      font-size: 1.8rem;
-    }
-  }
-`;
-
 const BlogIndex: React.FC<IndexType> = ({ data, location }) => {
   const siteTitle = data?.site?.siteMetadata?.title || `Title`;
   const posts = data?.allMarkdownRemark.nodes;
@@ -85,6 +56,35 @@ const BlogIndex: React.FC<IndexType> = ({ data, location }) => {
     </Layout>
   );
 };
+
+const Article = styled.article`
+  p {
+    margin-bottom: 0;
+  }
+
+  h1,
+  h2 {
+    font-size: 2.4rem;
+    color: var(--mainColor);
+    margin-bottom: 1.6rem;
+    margin-top: 0;
+  }
+
+  header {
+    margin-bottom: 1.6rem;
+
+    small {
+      font-size: 1.4rem;
+      color: #aaa;
+    }
+  }
+
+  section {
+    p {
+      font-size: 1.8rem;
+    }
+  }
+`;
 
 export default BlogIndex;
 

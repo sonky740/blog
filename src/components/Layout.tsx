@@ -13,6 +13,74 @@ interface HeaderProps {
   scrollOn: boolean;
 }
 
+const Layout: React.FC<LayoutType> = ({ location, children }) => {
+  const { theme, themeHandler } = useTheme();
+  const [isScroll, setIsScroll] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const rootPath = `${__PATH_PREFIX__}/`;
+  const isRootPath = location?.pathname === rootPath;
+
+  const header = (
+    <div>
+      <h1>
+        <Link to="/">Sonky's Blog</Link>
+      </h1>
+      <nav>
+        <ThemeButton
+          type="button"
+          theme={theme}
+          onClick={themeHandler as () => {}}
+          title={theme === 'light' ? '현재: 화이트모드' : '현재: 다크모드'}
+        />
+        <Link to="/About">About</Link>
+      </nav>
+    </div>
+  );
+
+  useEffect(() => {
+    const scrollYHandler = () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 25) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+
+      const clientHeight = document.body.clientHeight;
+      const scrollHeight = document.body.scrollHeight;
+      const realHeight = scrollHeight - clientHeight;
+      const scrollPercent = (scrollY / realHeight) * 100;
+
+      headerRef.current?.style.setProperty(
+        '--scrollPercent',
+        `${scrollPercent}%`
+      );
+    };
+    scrollYHandler();
+
+    window.addEventListener('scroll', scrollYHandler);
+    window.addEventListener('resize', scrollYHandler);
+
+    return () => {
+      window.removeEventListener('scroll', scrollYHandler);
+      window.removeEventListener('resize', scrollYHandler);
+    };
+  }, []);
+
+  return (
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyle />
+      <Wrapper data-is-root-path={isRootPath}>
+        <Header ref={headerRef} scrollOn={isScroll}>
+          {header}
+        </Header>
+        <Main role="main">{children}</Main>
+      </Wrapper>
+    </ThemeProvider>
+  );
+};
+
 const Wrapper = styled.div`
   min-height: 100vh;
   background: var(--bg);
@@ -102,73 +170,5 @@ const ThemeButton = styled.button`
   background: url(${({ theme }) => (theme === 'dark' ? darkImg : lightImg)})
     no-repeat 50% 50%/2.4rem;
 `;
-
-const Layout: React.FC<LayoutType> = ({ location, children }) => {
-  const { theme, themeHandler } = useTheme();
-  const [isScroll, setIsScroll] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
-  const rootPath = `${__PATH_PREFIX__}/`;
-  const isRootPath = location?.pathname === rootPath;
-
-  const header = (
-    <div>
-      <h1>
-        <Link to="/">Sonky's Blog</Link>
-      </h1>
-      <nav>
-        <ThemeButton
-          type="button"
-          theme={theme}
-          onClick={themeHandler as () => {}}
-          title={theme === 'light' ? '현재: 화이트모드' : '현재: 다크모드'}
-        />
-        <Link to="/About">About</Link>
-      </nav>
-    </div>
-  );
-
-  useEffect(() => {
-    const scrollYHandler = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 25) {
-        setIsScroll(true);
-      } else {
-        setIsScroll(false);
-      }
-
-      const clientHeight = document.body.clientHeight;
-      const scrollHeight = document.body.scrollHeight;
-      const realHeight = scrollHeight - clientHeight;
-      const scrollPercent = (scrollY / realHeight) * 100;
-
-      headerRef.current?.style.setProperty(
-        '--scrollPercent',
-        `${scrollPercent}%`
-      );
-    };
-    scrollYHandler();
-
-    window.addEventListener('scroll', scrollYHandler);
-    window.addEventListener('resize', scrollYHandler);
-
-    return () => {
-      window.removeEventListener('scroll', scrollYHandler);
-      window.removeEventListener('resize', scrollYHandler);
-    };
-  }, []);
-
-  return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyle />
-      <Wrapper data-is-root-path={isRootPath}>
-        <Header ref={headerRef} scrollOn={isScroll}>
-          {header}
-        </Header>
-        <Main role="main">{children}</Main>
-      </Wrapper>
-    </ThemeProvider>
-  );
-};
 
 export default Layout;

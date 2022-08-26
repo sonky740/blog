@@ -5,6 +5,46 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Comments from '../components/Comments';
 
+const BlogPostTemplate: React.FC<IndexType> = ({ data, location }) => {
+  const post = data.markdownRemark;
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const { previous, next } = data;
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <Seo
+        title={post?.frontmatter.title}
+        description={post?.frontmatter.description || post?.excerpt}
+        post={post}
+      />
+      <Post>
+        <header>
+          <h2>{post?.frontmatter.title}</h2>
+          <p>{post?.frontmatter.date}</p>
+        </header>
+        <article dangerouslySetInnerHTML={{ __html: post?.html! }} />
+      </Post>
+      <PostNav>
+        <div>
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          )}
+        </div>
+        <div>
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </Link>
+          )}
+        </div>
+      </PostNav>
+      <Comments id={post?.id!} />
+    </Layout>
+  );
+};
+
 const Post = styled.article`
   header {
     padding-bottom: 1.6rem;
@@ -84,46 +124,6 @@ const PostNav = styled.nav`
     }
   }
 `;
-
-const BlogPostTemplate: React.FC<IndexType> = ({ data, location }) => {
-  const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const { previous, next } = data;
-
-  return (
-    <Layout location={location} title={siteTitle}>
-      <Seo
-        title={post?.frontmatter.title}
-        description={post?.frontmatter.description || post?.excerpt}
-        post={post}
-      />
-      <Post>
-        <header>
-          <h2>{post?.frontmatter.title}</h2>
-          <p>{post?.frontmatter.date}</p>
-        </header>
-        <article dangerouslySetInnerHTML={{ __html: post?.html! }} />
-      </Post>
-      <PostNav>
-        <div>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </div>
-        <div>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </div>
-      </PostNav>
-      <Comments id={post?.id!} />
-    </Layout>
-  );
-};
 
 export default BlogPostTemplate;
 
