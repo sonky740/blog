@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 
-const NotFoundPage: React.FC<IndexType> = ({ data, location }) => {
+const NotFoundPage = ({ data, location }: IndexType) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (

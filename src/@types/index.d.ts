@@ -44,22 +44,3 @@ interface IndexType {
   };
   location: {};
 }
-
-interface LayoutType {
-  location?: { pathname?: string };
-  title: string;
-  children: React.ReactNode;
-}
-
-interface PostType {
-  frontmatter: {
-    title: string;
-    date: string;
-    description: string;
-    tags?: [];
-  };
-  excerpt: string;
-  fields: {
-    slug: string;
-  };
-}

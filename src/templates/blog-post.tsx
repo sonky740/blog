@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Comments from '../components/Comments';
+import Post from '../components/Post';
+import PostNav from '../components/PostNav';
 
 const BlogPostTemplate: React.FC<IndexType> = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -44,86 +45,6 @@ const BlogPostTemplate: React.FC<IndexType> = ({ data, location }) => {
     </Layout>
   );
 };
-
-const Post = styled.article`
-  header {
-    padding-bottom: 1.6rem;
-    margin-bottom: 1.6rem;
-    border-bottom: 1px solid #eee;
-
-    h2 {
-      margin: 0 0 1.6rem 0;
-      color: var(--mainColor);
-    }
-
-    p {
-      font-size: 1.4rem;
-      color: #aaa;
-      margin-bottom: 0;
-    }
-  }
-
-  article {
-    min-height: 200px;
-    font-size: 1.8rem;
-
-    h2 {
-      font-size: 2.4rem;
-    }
-
-    h3 {
-      font-size: 2.2rem;
-    }
-
-    h4 {
-      font-size: 2rem;
-    }
-
-    a {
-      text-decoration: underline;
-    }
-
-    em {
-      opacity: 0.6;
-    }
-
-    strong {
-      opacity: 1;
-
-      em {
-        opacity: inherit;
-      }
-    }
-
-    p {
-      img {
-        display: block;
-        margin: auto;
-      }
-    }
-
-    hr {
-      margin: 1.6rem 0;
-      border-color: var(--mainColor);
-    }
-  }
-`;
-
-const PostNav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 3.2rem 0 0 0;
-
-  > div {
-    flex: 1;
-    + div {
-      text-align: right;
-    }
-  }
-`;
 
 export default BlogPostTemplate;
 

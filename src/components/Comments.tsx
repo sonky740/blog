@@ -2,7 +2,11 @@ import React, { useEffect, useRef, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 
-const Comments: React.FC<{ id: string }> = ({ id }) => {
+interface Props {
+  id: string;
+}
+
+const Comments = ({ id }: Props) => {
   const site = useSiteMetadata();
   const { repo } = site.utterances ?? { repo: undefined };
   const theme = useContext(ThemeContext);

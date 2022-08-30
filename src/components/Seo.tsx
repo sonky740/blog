@@ -14,7 +14,13 @@ interface SeoType {
   };
 }
 
-const Seo: React.FC<SeoType> = ({ description, lang, meta, title, post }) => {
+const Seo = ({
+  description = '',
+  lang = 'ko',
+  meta = [],
+  title,
+  post,
+}: SeoType) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -67,12 +73,6 @@ const Seo: React.FC<SeoType> = ({ description, lang, meta, title, post }) => {
       ].concat(meta!)}
     />
   );
-};
-
-Seo.defaultProps = {
-  lang: `ko`,
-  meta: [],
-  description: ``,
 };
 
 export default Seo;

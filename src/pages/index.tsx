@@ -4,7 +4,20 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import styled from 'styled-components';
 
-const BlogIndex: React.FC<IndexType> = ({ data, location }) => {
+interface PostType {
+  frontmatter: {
+    title: string;
+    date: string;
+    description: string;
+    tags?: [];
+  };
+  excerpt: string;
+  fields: {
+    slug: string;
+  };
+}
+
+const BlogIndex = ({ data, location }: IndexType) => {
   const siteTitle = data?.site?.siteMetadata?.title || `Title`;
   const posts = data?.allMarkdownRemark.nodes;
 
