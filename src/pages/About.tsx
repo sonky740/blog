@@ -49,12 +49,13 @@ const AboutIndex: React.FC<IndexType> = ({ location }) => {
         {/* 간단 이력 */}
         <h2 className="main-color">간단 이력</h2>
 
-        <h3>민앤지 (2021.06 ~ )</h3>
+        <h3>민앤지 (2021.06 ~ 2022.09)</h3>
         <ol>
           <li>SKT PASS 운영</li>
           <li>티오르(TIOR) 운영 및 고도화</li>
           <li className="cancel-line">Sheeeda(캠핑) 구축</li>
           <li>아파트청약케어 운영 및 고도화</li>
+          <li>더쎈카드 운영 및 고도화</li>
         </ol>
 
         <h3>인픽스 (2016.04 ~ 2021.06)</h3>
