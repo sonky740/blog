@@ -20,7 +20,7 @@ keywords: [1일 1커밋, github contributions]
 
 ---
 
-ps. 글을 쓰고나서 혹시 몰라서 회사 메일을 내 github 계정에 추가하였더니
+PS. 글을 쓰고나서 혹시 몰라서 회사 메일을 내 github 계정에 추가하였더니
 
 ![2022년 8월 2일 기준 sonky740 github 기여도](./contributions_all.png)
 
