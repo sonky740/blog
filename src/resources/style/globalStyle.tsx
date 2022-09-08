@@ -117,6 +117,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background: var(--bg);
     line-height: 1.5;
     word-break: keep-all;
     -ms-text-size-adjust: 100%;
