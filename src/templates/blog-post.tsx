@@ -6,7 +6,7 @@ import Comments from '../components/Comments';
 import Post from '../components/Post';
 import PostNav from '../components/PostNav';
 
-const BlogPostTemplate: React.FC<IndexType> = ({ data, location }) => {
+const BlogPostTemplate = ({ data, location }: IndexType) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;

@@ -1,6 +1,9 @@
+import type { GatsbySSR } from 'gatsby';
 const React = require('react');
 
-exports.onRenderBody = ({ setPreBodyComponents }) => {
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+  setPreBodyComponents,
+}) => {
   setPreBodyComponents([
     React.createElement('script', {
       dangerouslySetInnerHTML: {
@@ -40,7 +43,7 @@ exports.onRenderBody = ({ setPreBodyComponents }) => {
           })()
         `,
       },
-      key: 'sonky-ssr'
+      key: 'sonky-ssr',
     }),
   ]);
 };

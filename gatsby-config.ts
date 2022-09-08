@@ -30,14 +30,15 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [{
-            resolve: "gatsby-remark-vscode",
+        plugins: [
+          {
+            resolve: 'gatsby-remark-vscode',
             options: {
               theme: {
-                default: "Dark+ (default dark)",
+                default: 'Dark+ (default dark)',
                 parentSelector: {
-                  "body.dark": "Dark+ (default dark)",
-                  "body.light": "Light+ (default light)",
+                  'body.dark': 'Dark+ (default dark)',
+                  'body.light': 'Light+ (default light)',
                 },
               },
             },
@@ -68,8 +69,8 @@ module.exports = {
       options: {
         trackingIds: [`G-7RW4Q0CZND`],
         pluginConfig: {
-          head: true
-        }
+          head: true,
+        },
       },
     },
     {

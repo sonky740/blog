@@ -4,7 +4,7 @@ import Seo from '../components/Seo';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import About from '../components/About';
 
-const AboutIndex: React.FC<IndexType> = ({ location }) => {
+const AboutIndex = ({ location }: IndexType) => {
   const site = useSiteMetadata();
   const siteTitle = site.title || `Title`;
 
