@@ -41,6 +41,7 @@ module.exports = {
                   'body.light': 'Light+ (default light)',
                 },
               },
+              injectStyles: false,
             },
           },
           {

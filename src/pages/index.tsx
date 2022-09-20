@@ -9,7 +9,7 @@ interface PostType {
     title: string;
     date: string;
     description: string;
-    tags?: [];
+    keywords?: [];
   };
   excerpt: string;
   fields: {
@@ -20,6 +20,7 @@ interface PostType {
 const BlogIndex = ({ data, location }: IndexType) => {
   const siteTitle = data?.site?.siteMetadata?.title || `Title`;
   const posts = data?.allMarkdownRemark.nodes;
+  console.log(data);
 
   if (posts?.length === 0) {
     return (
@@ -58,8 +59,8 @@ const BlogIndex = ({ data, location }: IndexType) => {
                 </Article>
               </Link>
               {/* <div>
-                {post.frontmatter.tags?.map(tag => {
-                  return <span>{tag}</span>;
+                {post.frontmatter.keywords?.map(keyword => {
+                  return <span key={keyword}>{keyword}</span>;
                 })}
               </div> */}
             </li>
@@ -118,6 +119,7 @@ export const pageQuery = graphql`
           date(formatString: "YYYY년 MM월 DD일")
           title
           description
+          keywords
         }
       }
     }

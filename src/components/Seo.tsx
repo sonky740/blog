@@ -8,6 +8,7 @@ interface SeoType {
   meta?: [];
   title?: string;
   post?: {
+    html: string;
     frontmatter: {
       keywords: string[];
     };
@@ -24,6 +25,13 @@ const Seo = ({
   const { site } = useStaticQuery(
     graphql`
       query {
+        allMarkdownRemark {
+          edges {
+            node {
+              excerpt(pruneLength: 1000)
+            }
+          }
+        }
         site {
           siteMetadata {
             title
@@ -49,6 +57,10 @@ const Seo = ({
         {
           name: `google-site-verification`,
           content: `7QkL6QRJHb45Cp_E-AcQv72CE3EYeyiGz82Kc1TFJNQ`,
+        },
+        {
+          name: `title`,
+          content: title,
         },
         {
           name: `description`,
