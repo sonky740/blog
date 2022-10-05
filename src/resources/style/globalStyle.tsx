@@ -231,6 +231,14 @@ const GlobalStyle = createGlobalStyle`
         background: var(--color);
         border-radius: 50%;
       }
+
+      li {
+        &:before {
+          top: 0.8em;
+          height: 0.1rem;
+          border-radius: none;
+        }
+      }
     }
   }
   
@@ -265,7 +273,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   li > ul {
-    margin-left: 3.2rem;
+    margin-left: 0.4rem;
     margin-top: 1.6rem;
   }
 
