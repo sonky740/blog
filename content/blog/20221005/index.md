@@ -203,7 +203,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   ```
 - **ALTER**
   테이블 수정
-  - ADD COLUMN ~, DROP COLUMN ~, ALTER COLUMN ~ SET ~
+  - ADD COLUMN ~, DROP COLUMN ~, ALTER COLUMN ~ SET ~, MODIFY COLUMN ~
   - ADD CONSTRAINT ~: 제약 조건을 더함.
   - CASCADE: 연관 관계 삭제
   - IF EXISTS: 해당 데이터가 있을때만 삭제
@@ -211,6 +211,8 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   ALTER TABLE information RENAME TO new_info;
   ALTER TABLE new_info RENAME COLUMN person TO people;
   ALTER TABLE new_info ALTER COLUMN people DROP NOT NULL;
+  ALTER TABLE 테이블명 MODIFY COLUMN 컬럼명 자료형 AFTER 다른컬럼;
+  ALTER TABLE 테이블명 MODIFY COLUMN 컬럼명 자료형 FIRST; -- 해당 컬럼 첫번째로 이동
   ```
 - **CHECK**  
   조건 부여
