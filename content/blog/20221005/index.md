@@ -6,12 +6,15 @@ keywords: [sql, postgresql, sql fundamentals]
 ---
 
 최근 공부 중인 SQL 기본 문법에 대해 정리하고자 한다.  
-postgreSQL 기준으로 작성하였다.  
-DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel="noreferrer" title="udemy SQL 강좌 새창 열기">udemy</a>에서 가져왔다.
+postgreSQL, MySQL 기준으로 작성하였다.  
+DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel="noreferrer" title="udemy postgreSQL 강좌 새창 열기">udemy postgreSQL</a>, <a href="https://www.udemy.com/course/best-mysql-k/" target="_blank" rel="noreferrer" title="udemy MySQL 강좌 새창 열기">udemy MySQL</a>에서 가져왔다.
 
 - **데이터 유형**  
   string, numeric, date and time 주요 3가지가 있다.  
-  <a href="https://www.postgresql.org/docs/current/datatype.html" target="_blank" rel="noreferrer" title="데이터 유형 Document 새창 열기">Document</a> 참고
+  - CHAR, VARCHAR: 고정, 가변 문자형
+  - DECIMAL: DECIMAL(5, 2) <= 999.99
+  - FLOAT, DOUBLE: 4바이트, 8바이트 실수형
+  <a href="https://www.postgresql.org/docs/current/datatype.html" target="_blank" rel="noreferrer" title="데이터 유형 postgreSQL Document 새창 열기">postgreSQL Document</a>, <a href="https://www.w3schools.com/sql/sql_datatypes.asp" target="_blank" rel="noreferrer" title="데이터 유형 w3 mysql Document 새창 열기">w3 mysql Document</a> 참고
 - **DISTINCT**  
   고유하거나 중복되지 않는 값 조회
   ```sql
