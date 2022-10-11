@@ -10,6 +10,7 @@ postgreSQL 기준으로 작성하였다.
 DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel="noreferrer" title="udemy SQL 강좌 새창 열기">udemy</a>에서 가져왔다.
 
 - **데이터 유형**  
+  string, numeric, date and time 주요 3가지가 있다.  
   <a href="https://www.postgresql.org/docs/current/datatype.html" target="_blank" rel="noreferrer" title="데이터 유형 Document 새창 열기">Document</a> 참고
 - **DISTINCT**  
   고유하거나 중복되지 않는 값 조회
