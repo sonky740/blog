@@ -11,7 +11,7 @@ const Wrapper = ({ children }: Props) => {
 
 const Wrap = styled.div`
   min-height: 100vh;
-  background: var(--bg);
+  background: rgb(var(--bg));
   color: var(--color);
   transition: background 0.3s, color 0.3s;
 `;

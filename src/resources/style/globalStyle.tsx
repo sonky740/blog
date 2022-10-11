@@ -3,14 +3,14 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   :root {
     body.light {
-      --bg: #fff;
+      --bg: 255, 255, 255;
       --color: #222;
       --mainColor: #ff9c19;
       --reverseBg: #1a1b1e;
     }
 
     body.dark {
-      --bg: #1a1b1e;
+      --bg: 26, 27, 30;
       --color: #fff;
       --mainColor: #ffbd39;
       --reverseBg: #fff;
@@ -117,7 +117,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--bg);
+    background: rgb(var(--bg));
     line-height: 1.5;
     word-break: keep-all;
     -ms-text-size-adjust: 100%;

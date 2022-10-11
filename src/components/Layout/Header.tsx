@@ -21,7 +21,9 @@ const Header = forwardRef<HTMLElement, Props>(({ children, scrollOn }, ref) => {
 const HeaderStyle = styled.header<HeaderStyleProps>`
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background-color: rgba(var(--bg), .3);
+
+  backdrop-filter: blur(5px);
   margin: 0 0 3.6rem;
   z-index: 1000;
   box-shadow: ${({ scrollOn }) =>
