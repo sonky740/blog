@@ -35,6 +35,18 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT * FROM customer WHERE first_name ILIKE 'j%' AND last_name LIKE 'S%';
   SELECT * FROM customer WHERE first_name LIKE 'A%' AND last_name NOT LIKE 'B%' ORDER BY last_name;
   ```
+- **문자열 함수**  
+  <a href="https://www.w3schools.com/mysql/mysql_ref_functions.asp" target="_blank" rel="noreferrer" title="W3 schools mysql functions 새창 열기">Document</a> 참고
+  ```sql
+  SELECT CONCAT(필드명1, 필드명2) FROM 테이블;
+  SELECT CONCAT(author_fname, ' ', author_lname) AS full_name FROM books;
+  SELECT CONCAT_WS('-', title, author_fname, author_lname) FROM books;
+  SELECT SUBSTRING(필드명, 1, 5) FROM 테이블; -- 첫번째 ~ 다섯번째만 보여줌
+  SELECT SUBSTRING(필드명, 5) FROM 테이블; -- 다섯번째부터 보여줌
+  SELECT SUBSTRING(필드명, -3) FROM 테이블; -- 뒤에서부터 3글자만 보여줌
+  SELECT REPLACE(필드명, ' ', '_') FROM 테이블; -- 띄어쓰기를 _로
+  SELECT CHAR_LENGTH(필드명) FROM 테이블;
+  ```
 - **집계 함수**  
   SELECT, HAVING절에서만 호출 가능
   ```sql
