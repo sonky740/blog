@@ -23,7 +23,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   집계함수 사용 불가
   - IN: OR 여러개
   - BETWEEN: 값 범위 지정 (NOT 가능)
-  - LIKE, ILIKE: 문자열 내의 패턴 매칭 (NOT 가능)
+  - LIKE, ILIKE: 문자열 내의 패턴 매칭 (NOT 가능), \%, \_으로 %, _를 문자열로 검색 가능
   ```sql
   SELECT * FROM 필드명 WHERE 조건;
   SELECT * from customer WHERE first_name = 'Jared';
