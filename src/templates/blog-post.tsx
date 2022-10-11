@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
@@ -10,6 +10,13 @@ const BlogPostTemplate = ({ data, location }: IndexType) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
+
+  useEffect(() => {
+    const title = document.querySelectorAll('h3');
+    title?.forEach(item => {
+      item.setAttribute('id', item.innerText);
+    });
+  }, []);
 
   return (
     <Layout location={location} title={siteTitle}>
