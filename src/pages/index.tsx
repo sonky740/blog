@@ -20,7 +20,6 @@ interface PostType {
 const BlogIndex = ({ data, location }: IndexType) => {
   const siteTitle = data?.site?.siteMetadata?.title || `Title`;
   const posts = data?.allMarkdownRemark.nodes;
-  console.log(data);
 
   if (posts?.length === 0) {
     return (
