@@ -1,34 +1,34 @@
 module.exports = {
   siteMetadata: {
-    title: `손기연의 블로그`,
+    title: '손기연의 블로그',
     author: {
-      name: `손기연`,
-      summary: `손기연의 블로그`,
+      name: '손기연',
+      summary: '손기연의 블로그',
     },
-    description: `손기연의 블로그`,
-    siteUrl: `https://sonkyblog.vercel.app/`,
+    description: '손기연의 블로그',
+    siteUrl: 'https://sonkyblog.vercel.app/',
     utterances: {
       repo: 'sonky740/comment',
     },
   },
   plugins: [
-    `gatsby-plugin-image`,
+    'gatsby-plugin-image',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: 'blog',
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/resources/images`,
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
@@ -44,46 +44,46 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 630,
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
         ],
       },
     },
-    `gatsby-plugin-no-sourcemaps`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-plugin-no-sourcemaps',
+    'gatsby-plugin-styled-components',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingIds: [`G-7RW4Q0CZND`],
+        trackingIds: ['G-7RW4Q0CZND'],
         pluginConfig: {
           head: true,
         },
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `손기연의 블로그`,
-        short_name: `Sonky`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        display: `minimal-ui`,
-        icon: `src/resources/images/favicon.svg`,
+        name: '손기연의 블로그',
+        short_name: 'Sonky',
+        start_url: '/',
+        background_color: '#ffffff',
+        display: 'minimal-ui',
+        icon: 'src/resources/images/favicon.svg',
       },
     },
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
   ],
 };

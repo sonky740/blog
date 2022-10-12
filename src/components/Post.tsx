@@ -43,8 +43,24 @@ const PostStyle = styled.article`
       font-size: 1.8rem;
     }
 
+    h3,
+    h4 {
+      &:hover {
+        .title-anchor {
+          opacity: 0.6;
+        }
+      }
+    }
+
     a {
       text-decoration: underline;
+    }
+
+    .title-anchor {
+      display: inline-block;
+      margin-left: 0.4rem;
+      text-decoration: none;
+      opacity: 0;
     }
 
     em {

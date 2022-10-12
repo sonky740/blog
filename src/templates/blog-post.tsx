@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
@@ -7,14 +7,39 @@ import Post from '../components/Post';
 import PostNav from '../components/PostNav';
 
 const BlogPostTemplate = ({ data, location }: IndexType) => {
+  const article = useRef<HTMLElement>(null);
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
 
   useEffect(() => {
-    const title = document.querySelectorAll('h3');
+    const title = article.current?.querySelectorAll('h3');
     title?.forEach(item => {
+      const anchor = document.createElement('a');
+      anchor.href = `#${item.innerText}`;
+      anchor.className = 'title-anchor';
+      anchor.textContent = '#';
+
       item.setAttribute('id', item.innerText);
+      item.insertAdjacentElement('beforeend', anchor);
+    });
+
+    const anchor = article.current?.querySelectorAll('.title-anchor');
+    anchor?.forEach(item => {
+      function anchorScroll(e: Event) {
+        e.preventDefault();
+        const parent = item.parentNode as HTMLHeadingElement;
+
+        window.scrollTo({
+          behavior: 'smooth',
+          top: window.scrollY + parent.getBoundingClientRect().top - 100,
+        });
+      }
+      item.addEventListener('click', anchorScroll);
+
+      return () => {
+        item.removeEventListener('click', anchorScroll);
+      };
     });
   }, []);
 
@@ -30,7 +55,10 @@ const BlogPostTemplate = ({ data, location }: IndexType) => {
           <h2>{post?.frontmatter.title}</h2>
           <p>{post?.frontmatter.date}</p>
         </header>
-        <article dangerouslySetInnerHTML={{ __html: post?.html! }} />
+        <article
+          dangerouslySetInnerHTML={{ __html: post?.html! }}
+          ref={article}
+        />
       </Post>
       <PostNav>
         <div>
