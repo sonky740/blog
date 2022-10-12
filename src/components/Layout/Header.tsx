@@ -21,7 +21,7 @@ const Header = forwardRef<HTMLElement, Props>(({ children, scrollOn }, ref) => {
 const HeaderStyle = styled.header<HeaderStyleProps>`
   position: sticky;
   top: 0;
-  background-color: rgba(var(--bg), .3);
+  background-color: rgba(var(--bg), 0.3);
 
   backdrop-filter: blur(5px);
   margin: 0 0 3.6rem;
@@ -58,6 +58,16 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
     display: flex;
     column-gap: 0.8rem;
     position: relative;
+  }
+
+  @media screen and (max-width: 640px) {
+    > div {
+      padding: 0.8rem 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+    }
   }
 `;
 

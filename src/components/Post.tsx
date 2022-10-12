@@ -32,19 +32,35 @@ const PostStyle = styled.article`
     font-size: 1.8rem;
 
     h2 {
-      font-size: 2.4rem;
-    }
-
-    h3 {
       font-size: 2.2rem;
     }
 
-    h4 {
+    h3 {
       font-size: 2rem;
+    }
+
+    h4 {
+      font-size: 1.8rem;
+    }
+
+    h3,
+    h4 {
+      &:hover {
+        .title-anchor {
+          opacity: 0.6;
+        }
+      }
     }
 
     a {
       text-decoration: underline;
+    }
+
+    .title-anchor {
+      display: inline-block;
+      margin-left: 0.4rem;
+      text-decoration: none;
+      opacity: 0;
     }
 
     em {
@@ -63,6 +79,17 @@ const PostStyle = styled.article`
       img {
         display: block;
         margin: auto;
+      }
+    }
+
+    ul,
+    ol {
+      li {
+        h3,
+        h4 {
+          margin-bottom: 0;
+          line-height: 1.34;
+        }
       }
     }
 

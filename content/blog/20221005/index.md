@@ -9,19 +9,19 @@ keywords: [sql, postgresql, sql fundamentals]
 postgreSQL, MySQL 기준으로 작성하였다.  
 DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel="noreferrer" title="udemy postgreSQL 강좌 새창 열기">udemy postgreSQL</a>, <a href="https://www.udemy.com/course/best-mysql-k/" target="_blank" rel="noreferrer" title="udemy MySQL 강좌 새창 열기">udemy MySQL</a>에서 가져왔다.
 
-- **데이터 유형**  
+- ### **데이터 유형**  
   string, numeric, date and time 주요 3가지가 있다.  
   - CHAR, VARCHAR: 고정, 가변 문자형
   - DECIMAL: DECIMAL(5, 2) <= 999.99
   - FLOAT, DOUBLE: 4바이트, 8바이트 실수형
   <a href="https://www.postgresql.org/docs/current/datatype.html" target="_blank" rel="noreferrer" title="데이터 유형 postgreSQL Document 새창 열기">postgreSQL Document</a>, <a href="https://www.w3schools.com/sql/sql_datatypes.asp" target="_blank" rel="noreferrer" title="데이터 유형 w3 mysql Document 새창 열기">w3 mysql Document</a> 참고
-- **DISTINCT**  
+- ### **DISTINCT**  
   고유하거나 중복되지 않는 값 조회
   ```sql
   SELECT DISTINCT(필드명) FROM 테이블;
   SELECT DISTINCT 필드명 FROM 테이블;
   ```
-- **WHERE**  
+- ### **WHERE**  
   열에 조건을 지정하여 맞는 행 도출.  
   집계함수 사용 불가
   - IN: OR 여러개
@@ -38,7 +38,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT * FROM customer WHERE first_name ILIKE 'j%' AND last_name LIKE 'S%';
   SELECT * FROM customer WHERE first_name LIKE 'A%' AND last_name NOT LIKE 'B%' ORDER BY last_name;
   ```
-- **문자열 함수**  
+- ### **문자열 함수**  
   <a href="https://www.w3schools.com/mysql/mysql_ref_functions.asp" target="_blank" rel="noreferrer" title="W3 schools mysql functions 새창 열기">Document</a> 참고
   ```sql
   SELECT CONCAT(필드명1, 필드명2) FROM 테이블;
@@ -50,7 +50,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT REPLACE(필드명, ' ', '_') FROM 테이블; -- 띄어쓰기를 _로
   SELECT CHAR_LENGTH(필드명) FROM 테이블;
   ```
-- **집계 함수**  
+- ### **집계 함수**  
   SELECT, HAVING절에서만 호출 가능
   ```sql
   SELECT MIN(필드명) FROM 테이블;
@@ -59,7 +59,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT ROUND(AVG(필드명), 2) FROM 테이블;
   SELECT SUM(필드명) FROM 테이블;
   ```
-- **GROUP BY**  
+- ### **GROUP BY**  
   카테고리별로 열을 집계  
    FROM 바로 뒤 or WHERE 바로 뒤에 있어야함.
   ```sql
@@ -70,7 +70,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT rating, AVG(replacement_cost) FROM film GROUP BY rating;
   SELECT customer_id, SUM(amount) FROM payment GROUP BY customer_id ORDER BY SUM(amount) DESC LIMIT 5;
   ```
-- **HAVING**  
+- ### **HAVING**  
   집계가 이미 수행된 "이후에" 자료 필터링.  
   WHERE절에서 집계함수를 못쓰므로 HAVING절에서 사용.
   ```sql
@@ -80,7 +80,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT customer_id, COUNT(amount) FROM payment GROUP BY customer_id HAVING COUNT(amount) >= 40 ORDER BY COUNT(amount) DESC;
   SELECT customer_id, SUM(amount) FROM payment WHERE staff_id = 2 GROUP BY customer_id HAVING SUM(amount) > 100;
   ```
-- **AS**  
+- ### **AS**  
   열이나 결과에 별칭을 부여  
   순전히 가독성을 위함. 쿼리의 맨 마지막에 실행되므로, WHERE절이나 GROUP BY 호출에 사용 불가.  
   ORDER BY에는 가능.
@@ -88,7 +88,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT 필드명 AS 별칭 FROM 테이블;
   SELECT customer_id, SUM(amount) AS amount_sum FROM payment GROUP BY customer_id ORDER BY amount_sum DESC;
   ```
-- **INNER JOIN (JOIN)**  
+- ### **INNER JOIN (JOIN)**  
   결합되는 테이블을 모두 충족 (교집합)
   ```sql
   SELECT 필드명 FROM 테이블1 INNER JOIN 테이블2 ON 조인될 조건;
@@ -96,7 +96,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT district, email FROM address INNER JOIN customer ON customer.address_id = address.address_id WHERE district LIKE 'California';
   SELECT title, first_name, last_name FROM film INNER JOIN film_actor ON film_actor.film_id = film.film_id INNER JOIN actor ON actor.actor_id = film_actor.actor_id WHERE first_name = 'Nick' AND last_name = 'Wahlberg';
   ```
-- **OUTER JOIN**  
+- ### **OUTER JOIN**  
   한쪽에만 데이터가 있어도 결과 도출
   - FULL: 왼쪽, 오른쪽 모든 값 출력
   - LEFT: 왼쪽 테이블의 값만 출력 (비대칭이므로 순서 중요)
@@ -106,13 +106,13 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT film.film_id, film.title, inventory_id, store_id FROM film LEFT JOIN inventory ON inventory.film_id = film.film_id WHERE inventory.film_id IS null; -- film에 속한것만 가져옴.
   SELECT film.film_id, film.title, inventory_id, store_id FROM inventory RIGHT JOIN film ON inventory.film_id = film.film_id WHERE inventory.film_id IS null; -- film에 속한것만 가져옴.
   ```
-- **SELF JOIN**  
+- ### **SELF JOIN**  
   표 자기 자신과 조인.
   ```sql
   SELECT 필드명 FROM 테이블 AS 별칭1 INNER JOIN 테이블 AS 별칭2 ON 조인될 조건;
   SELECT f1.title, f2.title, f1.length FROM film AS f1 INNER JOIN film AS f2 ON f1.film_id != f2.film_id AND f1.length = f2.length;
   ```
-- **UNION**  
+- ### **UNION**  
   2개 이상의 SELECT문의 결과를 결합.  
   JOIN과는 다르게 그냥 그대로 갖다 붙임.  
   같은 수의 컬럼과 자료 구조가 동일 해야함.
@@ -120,7 +120,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT 필드명 FROM 테이블1 UNION SELECT 필드명 FROM 테이블2;
   SELECT * FROM film_actor UNION SELECT * FROM film_category;
   ```
-- **TIMESTAMP**  
+- ### **TIMESTAMP**  
   시간, 날짜에 대한 쿼리  
   INSERT에서 유용함.
   ```sql
@@ -128,7 +128,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT TIMEOFDAY();
   SELECT CURRENT_DATE;
   ```
-- **EXTRACT**  
+- ### **EXTRACT**  
   년, 월, 일, 주, 분기별로 추출  
   <a href="https://www.postgresql.org/docs/12/functions-formatting.html" target="_blank" rel="noreferrer" title="functions-formatting document 새창 열기">Document</a> 참고.
   ```sql
@@ -139,7 +139,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT DISTINCT(to_char(payment_date, 'MONTH')) FROM payment;
   SELECT COUNT(*) FROM payment WHERE EXTRACT(dow FROM payment_date) = 1;
   ```
-- **Math**  
+- ### **Math**  
   수리 함수  
   <a href="https://www.postgresql.org/docs/12/functions-string.html" target="_blank" rel="noreferrer" title="functions-string document 새창 열기">Document</a> 참고
   ```sql
@@ -147,7 +147,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT upper(first_name || ' ' || last_name) AS full_name FROM customer;
   SELECT LOWER(LEFT(first_name, 1)) || LOWER(last_name) || '@gmail.com' AS customer_email FROM customer;
   ```
-- **SUBQUERY**  
+- ### **SUBQUERY**  
   더 복잡한 쿼리 실행  
   EXISTS: 서브 쿼리의 결과가 한건이라도 존재하면 TRUE, FALSE 반환
   ```sql
@@ -155,7 +155,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT film_id, title FROM film WHERE film_id IN (SELECT inventory.film_id FROM rental INNER JOIN inventory ON inventory.inventory_id = rental.inventory_id WHERE return_date BETWEEN '2005-05-29' AND '2005-05-30') ORDER BY title;
   SELECT first_name, last_name FROM customer AS c WHERE EXISTS (SELECT * FROM payment AS p WHERE p.customer_id = c.customer_id AND amount > 11)
   ```
-- **제약 조건**  
+- ### **제약 조건**  
   테이블에 문제있는 데이터가 입력되지 않도록 미리 지정하는 조건  
   제약 조건을 위반하면 삽입을 막음.
   - NOT NULL: null이 입력될 수 없음.
@@ -164,7 +164,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   - FOREIGN Key: 세로단이나 다른 표의 데이터에 제약 조건을 검.
   - CHECK: 행의 모든 값이 특정한 조건을 만족.
   - EXCLUSION: 특정 오퍼레이터를 사용한 특정 열이나 식에서 어떤 두 열이 비교될 때, 모든 비교 값이 참으로 판명되지 않아야 함.
-- **CREATE**  
+- ### **CREATE**  
   테이블 생성
   ```sql
   CREATE TABLE 테이블명 (컬럼명1, 컬럼명2);
@@ -189,7 +189,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
       hire_date TIMESTAMP
     );
   ```
-- **INSERT**  
+- ### **INSERT**  
   데이터 삽입
   ```sql
   INSERT INTO 테이블 (컬럼명1, 컬럼명2) VALUES (데이터1, 데이터2);
@@ -197,7 +197,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   INSERT INTO job(job_name) VALUES ('Astronaut');
   INSERT INTO account_job(user_id, job_id, hire_date) VALUES (1, 1, CURRENT_TIMESTAMP);
   ```
-- **UPDATE**  
+- ### **UPDATE**  
   데이터 수정  
   RETURNING: 실행 결과 리턴
   ```sql
@@ -207,7 +207,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   UPDATE account_job SET hire_date = account.created_on FROM account WHERE account_job.user_id = account.user_id;
   UPDATE account SET last_login = CURRENT_TIMESTAMP RETURNING email, created_on, last_login;
   ```
-- **DELETE, DROP**  
+- ### **DELETE, DROP**  
   데이터 열 삭제  
   USING: 다른 테이블에 존재하는지 확인  
   DROP: 조건 없이 그냥 삭제 TABLE, DATABASE
@@ -217,7 +217,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   DROP TABLE 테이블명
   DROP DATABASE 데이터베이스명
   ```
-- **ALTER**
+- ### **ALTER**
   테이블 수정
   - ADD COLUMN ~, DROP COLUMN ~, ALTER COLUMN ~ SET ~, MODIFY COLUMN ~
   - ADD CONSTRAINT ~: 제약 조건을 더함.
@@ -230,7 +230,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   ALTER TABLE 테이블명 MODIFY COLUMN 컬럼명 자료형 AFTER 다른컬럼;
   ALTER TABLE 테이블명 MODIFY COLUMN 컬럼명 자료형 FIRST; -- 해당 컬럼 첫번째로 이동
   ```
-- **CHECK**  
+- ### **CHECK**  
   조건 부여
   ```sql
   CREATE TABLE
@@ -244,7 +244,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
     )
   INSERT INTO employees(first_name, last_name, birthdate, hire_date, salary) VALUES ('Sammy', 'Smith', '1899-11-03', '2010-01-01', 100) -- birthdate 제약 조건 위반으로 에러 발생
   ```
-- **CASE**  
+- ### **CASE**  
   특정 조건이 충족되었을 때 실행
   ```sql
   CASE 컬럼명 WHEN 조건 THEN O 값 ELSE X 값 END
@@ -279,14 +279,14 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   FROM
     film;
   ```
-- **COALESCE**  
+- ### **COALESCE**  
   무한한 수의 arguments를 쓸 수 있는 기능, null이 아닌 첫 argument를 도출.  
   보통 null값을 0으로 치환할 때 씀.
   ```sql
   SELECT COALESCE(컬럼1, 컬럼2) FROM 테이블;
   SELECT item, (price - COALESCE(discount, 0)) AS final FROM table;
   ```
-- **CAST**  
+- ### **CAST**  
   데이터 유형을 바꿔줌.
   ```sql
   SELECT CAST(컬럼 AS 타입) FROM 테이블;
@@ -294,7 +294,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   SELECT '5'::INTEGER AS new_int; -- postgreSQL에서만 가능
   SELECT CHAR_LENGTH(CAST(inventory_id AS VARCHAR)) FROM rental;
   ```
-- **NULLIF**  
+- ### **NULLIF**  
   표현식 1과 표현식 2가 같으면 null, 다르면 표현식 1 도출.  
   특정값을 null로 변경해야 할 때 유용.
   ```sql
@@ -316,7 +316,7 @@ DB는 <a href="https://www.udemy.com/course/best-sql-2022/" target="_blank" rel=
   FROM
     depts;
   ```
-- **VIEW**  
+- ### **VIEW**  
   특정 query를 저장해둠. (물리적X)
   ```sql
   CREATE VIEW 별칭 AS query;
