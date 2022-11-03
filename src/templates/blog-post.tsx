@@ -9,7 +9,7 @@ import PostNav from '../components/PostNav';
 const BlogPostTemplate = ({ data, location }: IndexType) => {
   const article = useRef<HTMLElement>(null);
   const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const siteTitle = data.site.siteMetadata?.title || 'Title';
   const { previous, next } = data;
 
   useEffect(() => {

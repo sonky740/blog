@@ -7,6 +7,16 @@
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "tsc": "tsc --noEmit",
+    "prepare": "husky install"
+  },
   "dependencies": {
     "gatsby": "^4.21.1",
     "gatsby-plugin-google-gtag": "^4.21.0",
@@ -51,16 +61,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonky740/blog.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "tsc": "tsc --noEmit",
-    "prepare": "husky install"
   },
   "lint-staged": {
     "*.ts": "bash -c 'npm run tsc'"

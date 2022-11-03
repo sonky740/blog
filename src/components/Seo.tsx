@@ -55,32 +55,32 @@ const Seo = ({
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
       meta={[
         {
-          name: `google-site-verification`,
-          content: `7QkL6QRJHb45Cp_E-AcQv72CE3EYeyiGz82Kc1TFJNQ`,
+          name: 'google-site-verification',
+          content: '7QkL6QRJHb45Cp_E-AcQv72CE3EYeyiGz82Kc1TFJNQ',
         },
         {
-          name: `title`,
+          name: 'title',
           content: title,
         },
         {
-          name: `description`,
+          name: 'description',
           content: metaDescription,
         },
         {
-          property: `og:title`,
+          property: 'og:title',
           content: title,
         },
         {
-          property: `keywords`,
+          property: 'keywords',
           content: frontmatter?.keywords,
         },
         {
-          property: `og:description`,
+          property: 'og:description',
           content: metaDescription,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: 'og:type',
+          content: 'website',
         },
       ].concat(meta!)}
     />

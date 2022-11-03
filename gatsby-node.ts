@@ -1,6 +1,6 @@
 import type { GatsbyNode } from 'gatsby';
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
@@ -10,7 +10,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const { createPage } = actions;
 
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+  const blogPost = path.resolve('./src/templates/blog-post.tsx');
 
   const allMarkdown: {
     errors?: any;
@@ -41,7 +41,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const { slug } = node.fields;
     if (!slug) return;
 
-    // Type-safe `createPage` call.
+    // Type-safe 'createPage' call.
     createPage({
       path: slug,
       component: blogPost,
