@@ -6,7 +6,7 @@ import About from '../components/About';
 
 const AboutIndex = ({ location }: IndexType) => {
   const site = useSiteMetadata();
-  const siteTitle = site.title || `Title`;
+  const siteTitle = site.title || 'Title';
 
   return (
     <Layout location={location} title={siteTitle}>
