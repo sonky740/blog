@@ -1,6 +1,9 @@
 ## 🚀 손기연의 블로그 Quick start
 
 1.  **블로그 설치**
+    최근 환경 (2022.11.08)
+    node version: 18.12.1
+    npm version: 8.19.2
 
     ```
     npm i
@@ -9,7 +12,7 @@
 1.  **블로그 스타트**
 
     ```
-    npm run dev 
+    npm run dev
     or
     npm run start
     ```
