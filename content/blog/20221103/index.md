@@ -5,7 +5,7 @@ date: '2022-11-03'
 keywords: [BigO Notation]
 ---
 
-나는 알고리즘을 많이 짜는 직군은 아니지만 그렇다고 아예 안쓰는 직군도 아니다. 그래서 빅오표기법에 대해 찾아봤고 Udemy강의 중 Colt Steele의 <a href="https://www.udemy.com/course/best-javascript-data-structures/" target="_blank" rel="noreferrer">Javascript 알고리즘 &amp; 자료구조 마스터클래스</a>를 듣고 프론트엔드 개발자로서 실무에 꽤 유용한 부분이 있어서 따로 정리한다.
+나는 알고리즘을 많이 짜는 직군은 아니지만 그렇다고 아예 안쓰는 직군도 아니다. 그래서 빅오표기법에 대해 찾아봤고 Udemy강의 중 Colt Steele의 <a href="https://www.udemy.com/course/best-javascript-data-structures/" target="_blank" rel="noreferrer" title="Udemy Javascript 알고리즘 &amp; 자료구조 마스터클래스 새창 열기">Javascript 알고리즘 &amp; 자료구조 마스터클래스</a>를 듣고 프론트엔드 개발자로서 실무에 꽤 유용한 부분이 있어서 따로 정리한다.
 
 빅오표기법에 대한 개념이나 이론은 구글링하면 수도 없이 많이 나오기 때문에 이 글엔 적지 않을 것이다.
 빅오표기법에서는 시간복잡도와 공간복잡도로 나뉘는데 실무에서는 공간복잡도를 거의 고려하지 않는 것 같다.(나만 고려하지 않는 거일 수도 있다.)
