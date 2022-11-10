@@ -10,6 +10,8 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
         __html: `
           (() => {
             window.__onThemeChange = function() {};
+            
+            let preferredTheme
 
             function setTheme(newTheme) {
               window.__theme = newTheme;
@@ -19,18 +21,12 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
               window.__onThemeChange(newTheme);
             }
 
-            let preferredTheme
-
-            try {
-              preferredTheme = localStorage.getItem('theme')
-            } catch (err) {}
+            preferredTheme = localStorage.getItem('theme')
 
             window.__setPreferredTheme = newTheme => {
               setTheme(newTheme)
 
-              try {
-                localStorage.setItem('theme', newTheme)
-              } catch (err) {}
+              localStorage.setItem('theme', newTheme)
             }
 
             let darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
