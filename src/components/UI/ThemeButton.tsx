@@ -8,7 +8,9 @@ interface Props {
 }
 
 const ThemeButton = ({ theme, onClick, title }: Props) => {
-  return <Button theme={theme} onClick={onClick} title={title} />;
+  const selectedTheme = window.localStorage.getItem('theme') || theme;
+
+  return <Button theme={selectedTheme} onClick={onClick} title={title} />;
 };
 
 const Button = styled.button`
@@ -26,6 +28,7 @@ const Button = styled.button`
     width: 2.4rem;
     border-radius: 20px;
     transform: translate(-50%, -50%);
+    transition: all 0.3s;
     ${({ theme }) => {
       if (theme === 'dark') {
         return `
