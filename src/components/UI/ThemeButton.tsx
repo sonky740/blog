@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import lightImg from '../../resources/images/light.svg';
-import darkImg from '../../resources/images/dark.svg';
 
 interface Props {
   theme: string | null;
@@ -10,15 +8,36 @@ interface Props {
 }
 
 const ThemeButton = ({ theme, onClick, title }: Props) => {
-  return <Button type="button" theme={theme} onClick={onClick} title={title} />;
+  return <Button theme={theme} onClick={onClick} title={title} />;
 };
 
 const Button = styled.button`
+  position: relative;
+  width: 3rem;
+  height: 3rem;
   display: inline-block;
-  width: 2.4rem;
-  height: 2.4rem;
-  background: url(${({ theme }) => (theme === 'dark' ? darkImg : lightImg)})
-    no-repeat 50% 50%/2.4rem;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    height: 2.4rem;
+    width: 2.4rem;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    ${({ theme }) => {
+      if (theme === 'dark') {
+        return `
+            box-shadow: inset -3px -2px 5px -2px #8983f7, inset -9px -4px 0 0 #a3dafb;
+        `;
+      } else {
+        return `
+            background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+        `;
+      }
+    }}
+  }
 `;
 
 export default ThemeButton;
