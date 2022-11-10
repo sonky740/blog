@@ -8,39 +8,33 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
     React.createElement('script', {
       dangerouslySetInnerHTML: {
         __html: `
-          (() => {
-            window.__onThemeChange = function() {};
+          window.__onThemeChange = function() {};
+          
+          let preferredTheme
 
-            function setTheme(newTheme) {
-              window.__theme = newTheme;
-              preferredTheme = newTheme;
-              document.body.className = newTheme;
-              document.body.dataset.theme = newTheme;
-              window.__onThemeChange(newTheme);
-            }
+          function setTheme(newTheme) {
+            window.__theme = newTheme;
+            preferredTheme = newTheme;
+            document.body.className = newTheme;
+            document.body.dataset.theme = newTheme;
+            window.__onThemeChange(newTheme);
+          }
 
-            let preferredTheme
+          preferredTheme = localStorage.getItem('theme')
 
-            try {
-              preferredTheme = localStorage.getItem('theme')
-            } catch (err) {}
+          window.__setPreferredTheme = newTheme => {
+            setTheme(newTheme)
 
-            window.__setPreferredTheme = newTheme => {
-              setTheme(newTheme)
+            localStorage.setItem('theme', newTheme)
+          }
 
-              try {
-                localStorage.setItem('theme', newTheme)
-              } catch (err) {}
-            }
+          let darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
-            let darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
+          darkQuery.addEventListener('change', e => {
+            window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+          })
 
-            darkQuery.addEventListener('change', e => {
-              window.__setPreferredTheme(e.matches ? 'dark' : 'light')
-            })
-
-            setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
-          })()
+          setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
         `,
       },
       key: 'sonky-ssr',
