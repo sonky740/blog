@@ -1946,27 +1946,27 @@ type GrvscTokenizedLineFilterListInput = {
   elemMatch?: InputMaybe<GrvscTokenizedLineFilterInput>;
 };
 
-enum GatsbyImageFormat {
-  Auto = 'AUTO',
-  Avif = 'AVIF',
-  Jpg = 'JPG',
-  NoChange = 'NO_CHANGE',
-  Png = 'PNG',
-  Webp = 'WEBP',
-}
+// enum GatsbyImageFormat {
+//   Auto = 'AUTO',
+//   Avif = 'AVIF',
+//   Jpg = 'JPG',
+//   NoChange = 'NO_CHANGE',
+//   Png = 'PNG',
+//   Webp = 'WEBP',
+// }
 
-enum GatsbyImageLayout {
-  Constrained = 'CONSTRAINED',
-  Fixed = 'FIXED',
-  FullWidth = 'FULL_WIDTH',
-}
+// enum GatsbyImageLayout {
+//   Constrained = 'CONSTRAINED',
+//   Fixed = 'FIXED',
+//   FullWidth = 'FULL_WIDTH',
+// }
 
-enum GatsbyImagePlaceholder {
-  Blurred = 'BLURRED',
-  DominantColor = 'DOMINANT_COLOR',
-  None = 'NONE',
-  TracedSvg = 'TRACED_SVG',
-}
+// enum GatsbyImagePlaceholder {
+//   Blurred = 'BLURRED',
+//   DominantColor = 'DOMINANT_COLOR',
+//   None = 'NONE',
+//   TracedSvg = 'TRACED_SVG',
+// }
 
 enum ImageCropFocus {
   Attention = 'ATTENTION',
