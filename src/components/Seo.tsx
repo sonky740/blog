@@ -64,12 +64,12 @@ const Seo = ({
           content: title,
         },
         {
-          name: 'image',
-          content: site.siteMetadata.image,
-        },
-        {
           name: 'description',
           content: metaDescription,
+        },
+        {
+          name: 'og:image',
+          content: site.siteMetadata.image,
         },
         {
           property: 'og:title',
