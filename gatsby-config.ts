@@ -5,6 +5,7 @@ module.exports = {
       name: '손기연',
       summary: '손기연의 블로그',
     },
+    image: '/sonky.png',
     description: '손기연의 블로그',
     siteUrl: 'https://sonkyblog.vercel.app/',
     utterances: {

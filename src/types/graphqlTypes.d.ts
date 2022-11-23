@@ -4321,6 +4321,7 @@ type SiteSiteMetadataUtterances = {
 
 type SiteSiteMetadata = {
   author?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
   defaultImage?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;

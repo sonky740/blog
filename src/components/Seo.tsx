@@ -36,6 +36,7 @@ const Seo = ({
           siteMetadata {
             title
             description
+            image
           }
         }
       }
@@ -61,6 +62,10 @@ const Seo = ({
         {
           name: 'title',
           content: title,
+        },
+        {
+          name: 'image',
+          content: site.siteMetadata.image,
         },
         {
           name: 'description',
