@@ -68,7 +68,7 @@ const Seo = ({
           content: metaDescription,
         },
         {
-          name: 'og:image',
+          property: 'og:image',
           content: site.siteMetadata.image,
         },
         {
