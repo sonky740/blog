@@ -18,6 +18,7 @@ const useSiteMetadata = () => {
               name
               summary
             }
+            image
             siteUrl
             utterances {
               repo
