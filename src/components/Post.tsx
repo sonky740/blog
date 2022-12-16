@@ -76,9 +76,10 @@ const PostStyle = styled.article`
     }
 
     p {
-      img {
+      img,
+      .gatsby-resp-image-wrapper {
         display: block;
-        margin: auto;
+        margin: 1.6rem auto;
       }
     }
 
