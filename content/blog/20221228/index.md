@@ -20,7 +20,7 @@ watch의 세 번째 인자인 flush로 callback의 발생 타이밍을 조절할
 3. B가 채워지긴 했는데 자동 선택하는 기능이 실행되지 않았음.
    1. 타이밍 문제인 거 같아서 setTimeout 안에 넣어보니 실행됨.
    2. 근데 아무리 봐도 setTimeout으로 해결하는 건 별로 좋지 않은 선택이라고 생각함.
-   3. <a href="https://vuejs.org/guide/essentials/watchers.html#callback-flush-timing" target="_blank" rel="noreferrer">Vue Watch Guide</a>를 보니 callback의 발생 타이밍을 조절 가능한 옵션이 있었음.
+   3. <a href="https://vuejs.org/guide/essentials/watchers.html#callback-flush-timing" target="_blank" rel="noreferrer" title="Vue Watch Guide 새창 열기">Vue Watch Guide</a>를 보니 callback의 발생 타이밍을 조절 가능한 옵션이 있었음.
 4. flush: 'post' 옵션을 주어 해결함. _=> callback이 DOM 업데이트 이후에 실행됨._
    ```js
    watch(source, callback, {
