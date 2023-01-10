@@ -98,6 +98,10 @@ const PostStyle = styled.article`
       margin: 1.6rem 0;
       border-color: var(--mainColor);
     }
+
+    code:not(.grvsc-code) {
+      color: var(--mainColor);
+    }
   }
 `;
 
