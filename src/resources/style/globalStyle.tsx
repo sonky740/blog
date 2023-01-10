@@ -131,7 +131,8 @@ const GlobalStyle = createGlobalStyle`
   button,
   textarea,
   button,
-  pre {
+  pre,
+  code {
     font-size: 16px;
     font-family: 'NotoSansKR', sans-serif;
   }
