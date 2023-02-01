@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "build-pf": "gatsby build --prefix-paths",
     "dev": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
