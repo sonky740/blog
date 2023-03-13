@@ -13,7 +13,7 @@ const PostStyle = styled.article`
   header {
     padding-bottom: 1.6rem;
     margin-bottom: 1.6rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color);
 
     h2 {
       margin: 0 0 1.6rem 0;
@@ -22,7 +22,8 @@ const PostStyle = styled.article`
 
     p {
       font-size: 1.4rem;
-      color: #aaa;
+      color: var(--color);
+      opacity: 0.7;
       margin-bottom: 0;
     }
   }

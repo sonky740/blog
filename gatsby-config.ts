@@ -39,7 +39,7 @@ module.exports = {
                 default: 'Dark+ (default dark)',
                 parentSelector: {
                   'body.dark': 'Dark+ (default dark)',
-                  'body.light': 'Light+ (default light)',
+                  'body.light': 'Solarized Light',
                 },
               },
             },

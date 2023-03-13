@@ -51,6 +51,7 @@ const AboutIndex = ({ location }: IndexType) => {
 
         <h3>엑셈 (2022.09 ~ )</h3>
         <ol>
+          <li>모바일 인터맥스 개발</li>
           <li>한국건강관리협회 대시보드 개발</li>
         </ol>
 
