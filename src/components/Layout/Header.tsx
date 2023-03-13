@@ -22,7 +22,6 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
   position: sticky;
   top: 0;
   background-color: rgba(var(--bg), 0.3);
-
   backdrop-filter: blur(5px);
   margin: 0 0 3.6rem;
   z-index: 1000;
@@ -37,7 +36,7 @@ const HeaderStyle = styled.header<HeaderStyleProps>`
     left: 0;
     width: var(--scrollPercent);
     height: 2px;
-    background: var(--reverseBg);
+    background: var(--color);
   }
 
   > div {
