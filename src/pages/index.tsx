@@ -88,7 +88,8 @@ const Article = styled.article`
 
     small {
       font-size: 1.4rem;
-      color: #aaa;
+      color: var(--color);
+      opacity: 0.7;
     }
   }
 

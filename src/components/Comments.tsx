@@ -19,9 +19,9 @@ const Comments = ({ id }: Props) => {
 
     if (!isUtterancesCreated.current) {
       themeMode =
-        document.body.dataset.theme === 'dark' ? 'github-dark' : 'github-light';
+        document.body.dataset.theme === 'dark' ? 'gruvbox-dark' : 'github-light';
     } else {
-      themeMode = theme.dark ? 'github-dark' : 'github-light';
+      themeMode = theme.dark ? 'gruvbox-dark' : 'github-light';
     }
 
     const createUtterancesEl = () => {

@@ -3,17 +3,15 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   :root {
     body.light {
-      --bg: 255, 255, 255;
-      --color: #222;
-      --mainColor: #ff9c19;
-      --reverseBg: #1a1b1e;
+      --bg: 231, 210, 195;
+      --color: #241a1a;
+      --mainColor: #2b1212;
     }
 
     body.dark {
-      --bg: 26, 27, 30;
-      --color: #fff;
-      --mainColor: #ffbd39;
-      --reverseBg: #fff;
+      --bg: 38, 34, 35;
+      --color: #e7d2c3;
+      --mainColor: #ffaf76;
     }
   }
 
@@ -407,7 +405,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* gatsby-remark-vscode */
-  body.light {
+  /* body.light {
     .grvsc-container {
       background-color: #f8f8f8 !important;
     }
@@ -417,7 +415,7 @@ const GlobalStyle = createGlobalStyle`
     .grvsc-container {
       background-color: #282c34 !important;
     }
-  }
+  } */
 
   .grvsc-container {
     margin: 1.6rem 0;
