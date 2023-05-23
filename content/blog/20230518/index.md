@@ -38,8 +38,8 @@ keywords: [Vue, array, scatter chart]
 
 2. 라이브러리 차트 코어 안에 배열을 재생성하는 구간이 많았다. _(lodash의 defaultDeep, cloneDeep)_ 이렇게 되면 1번과 마찬가지로 배열을 재생성하여 메모리를 많이 사용하게 된다. 그래서 모든 재생성 과정을 없애고, 배열 주소 참조를 활용하여 메모리 사용량을 줄였다.
 
-3. Vue의 ref, reactive는 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noreferrer" title="Proxy MDN 새창 열기">Proxy</a>를 활용하여 반응형 데이터를 만든다. Proxy의 특징 중에, 원본 객체에 대한 특정 연산이 발생할 때마다 가로채고 변경하게 되는데, 프록시 객체에 대한 모든 연산은 프록시 핸들러 함수를 거쳐야 하므로, 이 과정에서 추가적인 오버헤드가 발생하게 된다. 그래서 chart를 draw 하는 과정에서 반응형 데이터(_Proxy_)를 for문을 돌리다 보니 매우 느려졌다.  
-   그래서 <a href="https://ko.vuejs.org/api/reactivity-advanced.html#toraw" target="_blank" rel="noreferrer" title="toRaw document 새창 열기">toRaw</a>로 반응형 데이터를 일반화 시키고, 영구 참조를 없애기 위해 로직도 맞게 수정하였다.
+3. Vue의 ref, reactive는 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noreferrer" title="Proxy MDN 새창 열기">Proxy</a>를 활용하여 반응성 데이터를 만든다. Proxy의 특징 중에, 원본 객체에 대한 특정 연산이 발생할 때마다 가로채고 변경하게 되는데, 프록시 객체에 대한 모든 연산은 프록시 핸들러 함수를 거쳐야 하므로, 이 과정에서 추가적인 오버헤드가 발생하게 된다. 그래서 chart를 draw 하는 과정에서 반응성 데이터(_Proxy_)를 for문을 돌리다 보니 매우 느려졌다.  
+   그래서 <a href="https://ko.vuejs.org/api/reactivity-advanced.html#toraw" target="_blank" rel="noreferrer" title="toRaw document 새창 열기">toRaw</a>로 반응성 데이터를 일반화 시키고, 영구 참조를 없애기 위해 로직도 맞게 수정하였다.
 
 이 문제들을 발견하고 해결하기까지 canvas를 offscreenCanvas를 써야 하나? Web Worker를 써야 하나? 기존에 점을 그릴 때 arc를 썼는데 속도적인 측면에서 좀 더 나은 rect로 바꾸기도 해보고 여러 트러블 슈팅이 있었다. 머리 빠져가는 스트레스를 받아 가며 개선하고 나니 오랜만에 느껴보는 개발의 쾌감이었다.
 
@@ -48,3 +48,31 @@ keywords: [Vue, array, scatter chart]
 ![문제 해결 후 사진](after.png)
 
 <a href="complete.gif" target="_blank">![문제 해결 후 사진](complete.gif)</a>
+
+---
+
+### 2023.05.24 내용 추가
+
+Vue에서 대량의 데이터를 처리할 때 쓰면 좋은 API가 있다. <a href="https://ko.vuejs.org/guide/best-practices/performance.html#reduce-reactivity-overhead-for-large-immutable-structures" target="_blank" rel="noreferrer" title="Vue 반응성 오버헤드 감소 문서 새창 열기">Vue 반응성 오버헤드 감소 문서</a> 이 글을 읽어보면 내가 쓴 글과 같은 고민을 하는 사람에게 도움이 될거라 본다. 여러 테스트를 해본 결과 Vue에서 대량의 데이터를 가진 배열을 props로 전달만 해도 엄청난 성능 저하가 왔다. _(성능 검사를 하면 "HTML 파싱" 이 부분이 제일 많이 차지한다.)_ 이럴때 shallowRef / shallowReactive를 활용하면 좋다. 단, 저 링크에도 설명돼있지만 shallow를 사용하면 아래 처럼 shallow를 선언한 루트에서만 변경이 이뤄져야 반응성이 적용된다.
+
+```js
+const shallowArray = shallowRef([
+  /* 깊은 객체의 큰 목록 */
+]);
+
+// 반응성 업데이트가 되지 않음.
+shallowArray.value.push(newObject);
+// 아래처럼 value를 직접 변경해야 반응성이 적용된다.
+shallowArray.value = [...shallowArr.value, newObject];
+
+// 반응성 업데이트가 되지 않음.
+shallowArray.value[0].foo = 1;
+// 아래처럼 value를 직접 변경해야 반응성이 적용된다.
+shallowArray.value = [
+  {
+    ...shallowArray.value[0],
+    foo: 1,
+  },
+  ...shallowArray.value.slice(1),
+];
+```
