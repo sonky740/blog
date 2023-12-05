@@ -27,6 +27,7 @@
     "gatsby-plugin-offline": "^6.5.0",
     "gatsby-plugin-react-helmet": "^6.5.0",
     "gatsby-plugin-sharp": "^5.5.0",
+    "gatsby-plugin-sitemap": "^6.12.3",
     "gatsby-plugin-styled-components": "^6.5.0",
     "gatsby-plugin-typescript": "^5.5.0",
     "gatsby-remark-copy-linked-files": "^6.5.0",
