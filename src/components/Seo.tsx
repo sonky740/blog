@@ -87,6 +87,10 @@ const Seo = ({
           property: 'og:type',
           content: 'website',
         },
+        {
+          name: 'naver-site-verification',
+          content: 'd3955609436ecf288d532e0c63f5a05cfe092a22',
+        },
       ].concat(meta!)}
     />
   );
