@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+interface ButtonProps {
+  theme: string | null;
+}
+
 interface Props {
   theme: string | null;
   onClick: () => void;
@@ -11,7 +15,7 @@ const ThemeButton = ({ theme, onClick, title }: Props) => {
   return <Button theme={theme} onClick={onClick} title={title} />;
 };
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   position: relative;
   width: 3rem;
   height: 3rem;

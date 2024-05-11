@@ -74,7 +74,7 @@ const Layout = ({ location, children }: LayoutType) => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <Wrapper data-is-root-path={isRootPath}>
-        <Header ref={headerRef} scrollOn={isScroll}>
+        <Header ref={headerRef} isScroll={isScroll}>
           {header}
         </Header>
         <Main>{children}</Main>

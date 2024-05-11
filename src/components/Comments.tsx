@@ -21,7 +21,7 @@ const Comments = ({ id }: Props) => {
       themeMode =
         document.body.dataset.theme === 'dark' ? 'gruvbox-dark' : 'github-light';
     } else {
-      themeMode = theme.dark ? 'gruvbox-dark' : 'github-light';
+      themeMode = theme?.dark ? 'gruvbox-dark' : 'github-light';
     }
 
     const createUtterancesEl = () => {
@@ -59,7 +59,7 @@ const Comments = ({ id }: Props) => {
     };
 
     isUtterancesCreated.current ? postThemeMessage() : createUtterancesEl();
-  }, [id, repo, theme.dark]);
+  }, [id, repo, theme?.dark]);
 
   return <div ref={containerRef} style={{ minHeight: '269px' }} />;
 };
