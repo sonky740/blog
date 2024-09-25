@@ -132,7 +132,7 @@ const GlobalStyle = createGlobalStyle`
   pre,
   code {
     font-size: 16px;
-    font-family: 'NotoSansKR', sans-serif;
+    font-family: 'Hanbit', 'NotoSansKR', sans-serif;
   }
 
   article,

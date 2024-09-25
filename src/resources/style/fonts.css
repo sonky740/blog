@@ -1,20 +1,27 @@
 @font-face {
-    font-family: 'NotoSansKR';
-    font-weight: 400;
-    font-style: normal;
-    src: url('../fonts/NotoSansKR-Regular.woff');
+  font-family: 'NotoSansKR';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/NotoSansKR-Regular.woff');
 }
 
 @font-face {
-    font-family: 'NotoSansKR';
-    font-weight: 500;
-    font-style: normal;
-    src: url('../fonts/NotoSansKR-Medium.woff');
+  font-family: 'NotoSansKR';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../fonts/NotoSansKR-Medium.woff');
 }
 
 @font-face {
-    font-family: 'NotoSansKR';
-    font-weight: 700;
-    font-style: normal;
-    src: url('../fonts/NotoSansKR-Bold.woff');
+  font-family: 'NotoSansKR';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/NotoSansKR-Bold.woff');
+}
+
+@font-face {
+  font-family: 'Hanbit';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/KCC-Hanbit.woff2');
 }
