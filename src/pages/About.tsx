@@ -35,11 +35,11 @@ const AboutIndex = ({ location }: IndexType) => {
           <li>
             PortFolio:{' '}
             <a
-              href="https://sonkypf.gatsbyjs.io"
+              href="https://sonkypf.vercel.app"
               target="_blank"
               rel="noreferrer"
             >
-              https://sonkypf.gatsbyjs.io
+              https://sonkypf.vercel.app
             </a>
           </li>
         </ul>
